@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +23,13 @@ namespace App_GestionArticulos
         {
             frmMenuMarcas menuMarcas = new frmMenuMarcas();
             menuMarcas.ShowDialog();
+        }
+
+        private void btn_MenuArticulos_Click(object sender, EventArgs e)
+        {
+            frmArticulos frmArticulos = new frmArticulos();
+            frmArticulos.ShowDialog();
+            
         }
     }
 }

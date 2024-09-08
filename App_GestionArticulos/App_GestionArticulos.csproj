@@ -52,6 +52,12 @@
     <Compile Include="frmAlta_Edicion_Marca.Designer.cs">
       <DependentUpon>frmAlta_Edicion_Marca.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmArticulos.Designer.cs">
+      <DependentUpon>frmArticulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenuMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAlta_Edicion_Marca.resx">
       <DependentUpon>frmAlta_Edicion_Marca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmArticulos.resx">
+      <DependentUpon>frmArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuMarcas.resx">
       <DependentUpon>frmMenuMarcas.cs</DependentUpon>

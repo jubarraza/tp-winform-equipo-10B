@@ -35,9 +35,10 @@
             // 
             // btn_MenuMarcas
             // 
-            this.btn_MenuMarcas.Location = new System.Drawing.Point(304, 199);
+            this.btn_MenuMarcas.Location = new System.Drawing.Point(228, 162);
+            this.btn_MenuMarcas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_MenuMarcas.Name = "btn_MenuMarcas";
-            this.btn_MenuMarcas.Size = new System.Drawing.Size(184, 53);
+            this.btn_MenuMarcas.Size = new System.Drawing.Size(138, 43);
             this.btn_MenuMarcas.TabIndex = 0;
             this.btn_MenuMarcas.Text = "Marcas";
             this.btn_MenuMarcas.UseVisualStyleBackColor = true;
@@ -45,30 +46,34 @@
             // 
             // btn_MenuCategorias
             // 
-            this.btn_MenuCategorias.Location = new System.Drawing.Point(522, 199);
+            this.btn_MenuCategorias.Location = new System.Drawing.Point(392, 162);
+            this.btn_MenuCategorias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_MenuCategorias.Name = "btn_MenuCategorias";
-            this.btn_MenuCategorias.Size = new System.Drawing.Size(184, 53);
+            this.btn_MenuCategorias.Size = new System.Drawing.Size(138, 43);
             this.btn_MenuCategorias.TabIndex = 1;
             this.btn_MenuCategorias.Text = "Categorias";
             this.btn_MenuCategorias.UseVisualStyleBackColor = true;
             // 
             // btn_MenuArticulos
             // 
-            this.btn_MenuArticulos.Location = new System.Drawing.Point(86, 199);
+            this.btn_MenuArticulos.Location = new System.Drawing.Point(64, 162);
+            this.btn_MenuArticulos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_MenuArticulos.Name = "btn_MenuArticulos";
-            this.btn_MenuArticulos.Size = new System.Drawing.Size(184, 53);
+            this.btn_MenuArticulos.Size = new System.Drawing.Size(138, 43);
             this.btn_MenuArticulos.TabIndex = 2;
             this.btn_MenuArticulos.Text = "Articulos";
             this.btn_MenuArticulos.UseVisualStyleBackColor = true;
+            this.btn_MenuArticulos.Click += new System.EventHandler(this.btn_MenuArticulos_Click);
             // 
             // frmMenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btn_MenuArticulos);
             this.Controls.Add(this.btn_MenuCategorias);
             this.Controls.Add(this.btn_MenuMarcas);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de Articulos";
