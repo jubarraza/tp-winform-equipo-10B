@@ -15,12 +15,30 @@ namespace Negocio
         {
             List<Categoria> lista = new List<Categoria>();
             AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("select Id, Descripcion from CATEGORIAS");
+                datos.EjecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Categoria aux = new Categoria();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
 
+                    lista.Add(aux);
 
-            return lista;
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
         }
-
-
-
     }
 }
