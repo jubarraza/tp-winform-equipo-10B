@@ -64,7 +64,23 @@ namespace Negocio
 
         public void Modificar(Marca marca) 
         {
-        
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("UPDATE MARCAS SET Descripcion = @Nombre WHERE Id = @Id");
+                datos.SetearParametro("@Nombre", marca.Nombre);
+                datos.SetearParametro("@Id", marca.Id);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
         }
 
     }

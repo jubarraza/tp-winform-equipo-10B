@@ -84,6 +84,7 @@
             this.Name = "frmAlta_Edicion_Marca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Marca";
+            this.Load += new System.EventHandler(this.frmAlta_Edicion_Marca_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

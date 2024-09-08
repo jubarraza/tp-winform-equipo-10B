@@ -61,7 +61,12 @@ namespace App_GestionArticulos
 
         private void btn_Modificar_Click(object sender, EventArgs e)
         {
+            Marca seleccionada;
+            seleccionada = (Marca)dgv_Marcas.CurrentRow.DataBoundItem;
 
+            frmAlta_Edicion_Marca modificacion = new frmAlta_Edicion_Marca(seleccionada);
+            modificacion.ShowDialog();
+            Cargar();
         }
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
