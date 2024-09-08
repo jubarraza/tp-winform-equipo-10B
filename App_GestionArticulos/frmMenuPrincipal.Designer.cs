@@ -70,6 +70,7 @@
             this.Controls.Add(this.btn_MenuCategorias);
             this.Controls.Add(this.btn_MenuMarcas);
             this.Name = "frmMenuPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de Articulos";
             this.ResumeLayout(false);
 

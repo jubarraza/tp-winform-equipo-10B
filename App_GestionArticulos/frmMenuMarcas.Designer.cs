@@ -33,6 +33,7 @@
             this.btn_AgregarMarca = new System.Windows.Forms.Button();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_Eliminar = new System.Windows.Forms.Button();
+            this.btn_VolverMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Marcas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +65,7 @@
             this.btn_AgregarMarca.TabIndex = 2;
             this.btn_AgregarMarca.Text = "Agregar";
             this.btn_AgregarMarca.UseVisualStyleBackColor = true;
+            this.btn_AgregarMarca.Click += new System.EventHandler(this.btn_AgregarMarca_Click);
             // 
             // btn_Modificar
             // 
@@ -73,6 +75,7 @@
             this.btn_Modificar.TabIndex = 3;
             this.btn_Modificar.Text = "Modificar";
             this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
             // 
             // btn_Eliminar
             // 
@@ -82,12 +85,24 @@
             this.btn_Eliminar.TabIndex = 4;
             this.btn_Eliminar.Text = "Eliminar";
             this.btn_Eliminar.UseVisualStyleBackColor = true;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
+            // 
+            // btn_VolverMenu
+            // 
+            this.btn_VolverMenu.Location = new System.Drawing.Point(231, 370);
+            this.btn_VolverMenu.Name = "btn_VolverMenu";
+            this.btn_VolverMenu.Size = new System.Drawing.Size(226, 38);
+            this.btn_VolverMenu.TabIndex = 5;
+            this.btn_VolverMenu.Text = "Volver al Menu Principal";
+            this.btn_VolverMenu.UseVisualStyleBackColor = true;
+            this.btn_VolverMenu.Click += new System.EventHandler(this.btn_VolverMenu_Click);
             // 
             // frmMenuMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 450);
+            this.Controls.Add(this.btn_VolverMenu);
             this.Controls.Add(this.btn_Eliminar);
             this.Controls.Add(this.btn_Modificar);
             this.Controls.Add(this.btn_AgregarMarca);
@@ -110,5 +125,6 @@
         private System.Windows.Forms.Button btn_AgregarMarca;
         private System.Windows.Forms.Button btn_Modificar;
         private System.Windows.Forms.Button btn_Eliminar;
+        private System.Windows.Forms.Button btn_VolverMenu;
     }
 }

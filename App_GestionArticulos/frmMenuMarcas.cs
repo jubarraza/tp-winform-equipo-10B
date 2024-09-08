@@ -46,5 +46,27 @@ namespace App_GestionArticulos
         {
             Cargar();
         }
+
+        private void btn_AgregarMarca_Click(object sender, EventArgs e)
+        {
+            frmAlta_Edicion_Marca alta = new frmAlta_Edicion_Marca();
+            alta.ShowDialog();
+            Cargar();
+        }
+
+        private void btn_VolverMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_Modificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Eliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
