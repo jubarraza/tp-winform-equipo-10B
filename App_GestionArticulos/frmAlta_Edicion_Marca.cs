@@ -53,6 +53,8 @@ namespace App_GestionArticulos
                     negocioMarca.Modificar(marca);
                     MessageBox.Show("Marcca modificada exitosamente");
                 }
+
+                Close();
             }
             catch (Exception ex)
             {
@@ -61,6 +63,24 @@ namespace App_GestionArticulos
             }
 
 
+        }
+
+        private void frmAlta_Edicion_Marca_Load(object sender, EventArgs e)
+        {
+            MarcaNegocio negocioMarca = new MarcaNegocio();
+
+            try
+            {
+                if(marca != null)
+                {
+                    txt_NombreMarca.Text = marca.Nombre;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
