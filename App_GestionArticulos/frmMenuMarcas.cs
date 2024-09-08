@@ -71,7 +71,24 @@ namespace App_GestionArticulos
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
+            MarcaNegocio negocioMarca = new MarcaNegocio();
+            Marca seleccionada;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Desea eliminar la marca?", "Eliminar Marca", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionada = (Marca)dgv_Marcas.CurrentRow.DataBoundItem;
+                    negocioMarca.Eliminar(seleccionada.Id);
+                    Cargar();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
