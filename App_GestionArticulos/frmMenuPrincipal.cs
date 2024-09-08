@@ -16,5 +16,11 @@ namespace App_GestionArticulos
         {
             InitializeComponent();
         }
+
+        private void btn_MenuMarcas_Click(object sender, EventArgs e)
+        {
+            frmMenuMarcas menuMarcas = new frmMenuMarcas();
+            menuMarcas.ShowDialog();
+        }
     }
 }

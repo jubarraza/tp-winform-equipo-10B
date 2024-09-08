@@ -28,13 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btn_MenuMarcas = new System.Windows.Forms.Button();
+            this.btn_MenuCategorias = new System.Windows.Forms.Button();
+            this.btn_MenuArticulos = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btn_MenuMarcas
+            // 
+            this.btn_MenuMarcas.Location = new System.Drawing.Point(304, 199);
+            this.btn_MenuMarcas.Name = "btn_MenuMarcas";
+            this.btn_MenuMarcas.Size = new System.Drawing.Size(184, 53);
+            this.btn_MenuMarcas.TabIndex = 0;
+            this.btn_MenuMarcas.Text = "Marcas";
+            this.btn_MenuMarcas.UseVisualStyleBackColor = true;
+            this.btn_MenuMarcas.Click += new System.EventHandler(this.btn_MenuMarcas_Click);
+            // 
+            // btn_MenuCategorias
+            // 
+            this.btn_MenuCategorias.Location = new System.Drawing.Point(522, 199);
+            this.btn_MenuCategorias.Name = "btn_MenuCategorias";
+            this.btn_MenuCategorias.Size = new System.Drawing.Size(184, 53);
+            this.btn_MenuCategorias.TabIndex = 1;
+            this.btn_MenuCategorias.Text = "Categorias";
+            this.btn_MenuCategorias.UseVisualStyleBackColor = true;
+            // 
+            // btn_MenuArticulos
+            // 
+            this.btn_MenuArticulos.Location = new System.Drawing.Point(86, 199);
+            this.btn_MenuArticulos.Name = "btn_MenuArticulos";
+            this.btn_MenuArticulos.Size = new System.Drawing.Size(184, 53);
+            this.btn_MenuArticulos.TabIndex = 2;
+            this.btn_MenuArticulos.Text = "Articulos";
+            this.btn_MenuArticulos.UseVisualStyleBackColor = true;
+            // 
+            // frmMenuPrincipal
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Controls.Add(this.btn_MenuArticulos);
+            this.Controls.Add(this.btn_MenuCategorias);
+            this.Controls.Add(this.btn_MenuMarcas);
+            this.Name = "frmMenuPrincipal";
+            this.Text = "Gestion de Articulos";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btn_MenuMarcas;
+        private System.Windows.Forms.Button btn_MenuCategorias;
+        private System.Windows.Forms.Button btn_MenuArticulos;
     }
 }
 
