@@ -68,7 +68,18 @@ namespace App_GestionArticulos
                 if (respuesta == DialogResult.Yes)
                 {
                     seleccion = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
-                    catNegocio.Eliminar(seleccion.Id);
+                    bool validacion = catNegocio.validarEliminacion(seleccion.Id);
+                    if (validacion) 
+                    {
+                        catNegocio.Eliminar(seleccion.Id);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede eliminar la Categoria.\nError: la categoria se encuentra asignada en un Articulo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
+                    
+                    
                     Cargar();
                 }
             }

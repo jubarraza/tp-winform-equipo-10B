@@ -104,6 +104,23 @@ namespace Negocio
             }
         }
 
+        public bool validarEliminacion(int id)
+        {
+            List<Articulo> listaArticulos = new List<Articulo>();
+            ArticuloNegocio negocioArticulo = new ArticuloNegocio();
+
+            listaArticulos = negocioArticulo.listar();
+
+            foreach (Articulo art in listaArticulos)
+            {
+                if (id == art.Categoria.Id)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
 
     }
 }
