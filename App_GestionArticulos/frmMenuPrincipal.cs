@@ -31,5 +31,11 @@ namespace App_GestionArticulos
             frmArticulos.ShowDialog();
             
         }
+
+        private void btn_MenuCategorias_Click(object sender, EventArgs e)
+        {
+            frmCategoria menuCategorias = new frmCategoria();
+            menuCategorias.ShowDialog();
+        }
     }
 }

@@ -36,7 +36,7 @@
             // btn_MenuMarcas
             // 
             this.btn_MenuMarcas.Location = new System.Drawing.Point(228, 162);
-            this.btn_MenuMarcas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_MenuMarcas.Margin = new System.Windows.Forms.Padding(2);
             this.btn_MenuMarcas.Name = "btn_MenuMarcas";
             this.btn_MenuMarcas.Size = new System.Drawing.Size(138, 43);
             this.btn_MenuMarcas.TabIndex = 0;
@@ -47,17 +47,18 @@
             // btn_MenuCategorias
             // 
             this.btn_MenuCategorias.Location = new System.Drawing.Point(392, 162);
-            this.btn_MenuCategorias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_MenuCategorias.Margin = new System.Windows.Forms.Padding(2);
             this.btn_MenuCategorias.Name = "btn_MenuCategorias";
             this.btn_MenuCategorias.Size = new System.Drawing.Size(138, 43);
             this.btn_MenuCategorias.TabIndex = 1;
             this.btn_MenuCategorias.Text = "Categorias";
             this.btn_MenuCategorias.UseVisualStyleBackColor = true;
+            this.btn_MenuCategorias.Click += new System.EventHandler(this.btn_MenuCategorias_Click);
             // 
             // btn_MenuArticulos
             // 
             this.btn_MenuArticulos.Location = new System.Drawing.Point(64, 162);
-            this.btn_MenuArticulos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_MenuArticulos.Margin = new System.Windows.Forms.Padding(2);
             this.btn_MenuArticulos.Name = "btn_MenuArticulos";
             this.btn_MenuArticulos.Size = new System.Drawing.Size(138, 43);
             this.btn_MenuArticulos.TabIndex = 2;
@@ -73,7 +74,7 @@
             this.Controls.Add(this.btn_MenuArticulos);
             this.Controls.Add(this.btn_MenuCategorias);
             this.Controls.Add(this.btn_MenuMarcas);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de Articulos";

@@ -41,27 +41,31 @@
             // 
             this.dgv_Marcas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Marcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Marcas.Location = new System.Drawing.Point(34, 88);
+            this.dgv_Marcas.Location = new System.Drawing.Point(26, 72);
+            this.dgv_Marcas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv_Marcas.Name = "dgv_Marcas";
             this.dgv_Marcas.RowHeadersWidth = 51;
             this.dgv_Marcas.RowTemplate.Height = 24;
-            this.dgv_Marcas.Size = new System.Drawing.Size(339, 245);
+            this.dgv_Marcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_Marcas.Size = new System.Drawing.Size(254, 199);
             this.dgv_Marcas.TabIndex = 0;
             // 
             // lbl_Titulo_Menu_Marcas
             // 
             this.lbl_Titulo_Menu_Marcas.AutoSize = true;
-            this.lbl_Titulo_Menu_Marcas.Location = new System.Drawing.Point(138, 28);
+            this.lbl_Titulo_Menu_Marcas.Location = new System.Drawing.Point(104, 23);
+            this.lbl_Titulo_Menu_Marcas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Titulo_Menu_Marcas.Name = "lbl_Titulo_Menu_Marcas";
-            this.lbl_Titulo_Menu_Marcas.Size = new System.Drawing.Size(125, 16);
+            this.lbl_Titulo_Menu_Marcas.Size = new System.Drawing.Size(97, 13);
             this.lbl_Titulo_Menu_Marcas.TabIndex = 1;
             this.lbl_Titulo_Menu_Marcas.Text = "Marcas disponibles";
             // 
             // btn_AgregarMarca
             // 
-            this.btn_AgregarMarca.Location = new System.Drawing.Point(444, 116);
+            this.btn_AgregarMarca.Location = new System.Drawing.Point(333, 94);
+            this.btn_AgregarMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_AgregarMarca.Name = "btn_AgregarMarca";
-            this.btn_AgregarMarca.Size = new System.Drawing.Size(183, 43);
+            this.btn_AgregarMarca.Size = new System.Drawing.Size(137, 35);
             this.btn_AgregarMarca.TabIndex = 2;
             this.btn_AgregarMarca.Text = "Agregar";
             this.btn_AgregarMarca.UseVisualStyleBackColor = true;
@@ -69,9 +73,10 @@
             // 
             // btn_Modificar
             // 
-            this.btn_Modificar.Location = new System.Drawing.Point(444, 184);
+            this.btn_Modificar.Location = new System.Drawing.Point(333, 150);
+            this.btn_Modificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Modificar.Name = "btn_Modificar";
-            this.btn_Modificar.Size = new System.Drawing.Size(183, 43);
+            this.btn_Modificar.Size = new System.Drawing.Size(137, 35);
             this.btn_Modificar.TabIndex = 3;
             this.btn_Modificar.Text = "Modificar";
             this.btn_Modificar.UseVisualStyleBackColor = true;
@@ -79,9 +84,10 @@
             // 
             // btn_Eliminar
             // 
-            this.btn_Eliminar.Location = new System.Drawing.Point(444, 252);
+            this.btn_Eliminar.Location = new System.Drawing.Point(333, 205);
+            this.btn_Eliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Eliminar.Name = "btn_Eliminar";
-            this.btn_Eliminar.Size = new System.Drawing.Size(183, 43);
+            this.btn_Eliminar.Size = new System.Drawing.Size(137, 35);
             this.btn_Eliminar.TabIndex = 4;
             this.btn_Eliminar.Text = "Eliminar";
             this.btn_Eliminar.UseVisualStyleBackColor = true;
@@ -89,9 +95,10 @@
             // 
             // btn_VolverMenu
             // 
-            this.btn_VolverMenu.Location = new System.Drawing.Point(231, 370);
+            this.btn_VolverMenu.Location = new System.Drawing.Point(173, 301);
+            this.btn_VolverMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_VolverMenu.Name = "btn_VolverMenu";
-            this.btn_VolverMenu.Size = new System.Drawing.Size(226, 38);
+            this.btn_VolverMenu.Size = new System.Drawing.Size(170, 31);
             this.btn_VolverMenu.TabIndex = 5;
             this.btn_VolverMenu.Text = "Volver al Menu Principal";
             this.btn_VolverMenu.UseVisualStyleBackColor = true;
@@ -99,15 +106,16 @@
             // 
             // frmMenuMarcas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 450);
+            this.ClientSize = new System.Drawing.Size(519, 366);
             this.Controls.Add(this.btn_VolverMenu);
             this.Controls.Add(this.btn_Eliminar);
             this.Controls.Add(this.btn_Modificar);
             this.Controls.Add(this.btn_AgregarMarca);
             this.Controls.Add(this.lbl_Titulo_Menu_Marcas);
             this.Controls.Add(this.dgv_Marcas);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMenuMarcas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Marcas";
