@@ -80,7 +80,15 @@ namespace App_GestionArticulos
                 if (respuesta == DialogResult.Yes)
                 {
                     seleccionada = (Marca)dgv_Marcas.CurrentRow.DataBoundItem;
-                    negocioMarca.Eliminar(seleccionada.Id);
+                    bool validacion = negocioMarca.validarEliminacion(seleccionada.Id);
+                    if(validacion == true)
+                    {
+                        negocioMarca.Eliminar(seleccionada.Id);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede eliminar la Marca.\nError: la marca se encuentra asignada en un Articulo.", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     Cargar();
                 }
 
