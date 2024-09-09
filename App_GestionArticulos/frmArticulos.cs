@@ -57,29 +57,5 @@ namespace App_GestionArticulos
             Modificar.ShowDialog();
             cargar();
         }
-
-        private void buttonEliminar_Click(object sender, EventArgs e)
-        {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            Articulo seleccion;
-
-            try
-            {
-                DialogResult respuesta = 
-                    MessageBox.Show("Confirmar", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(respuesta ==DialogResult.Yes)
-                {
-                    seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
-                    negocio.Eliminar(seleccion.Id);
-                    cargar();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
-            }
-           
-        }
     }
 }

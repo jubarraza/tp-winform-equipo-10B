@@ -70,19 +70,11 @@
     <Compile Include="frmArticulos.Designer.cs">
       <DependentUpon>frmArticulos.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCategoria.Designer.cs">
       <DependentUpon>frmCategoria.cs</DependentUpon>
-=======
-    <Compile Include="Frminformacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frminformacion.Designer.cs">
-      <DependentUpon>Frminformacion.cs</DependentUpon>
->>>>>>> 19a890174731aa2a06db7b508cc5285dc3a21715
     </Compile>
     <Compile Include="frmMenuMarcas.cs">
       <SubType>Form</SubType>

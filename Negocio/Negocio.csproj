@@ -44,10 +44,6 @@
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="CategoriaNegocio.cs" />
     <Compile Include="ArticuloNegocio.cs" />
-<<<<<<< HEAD
-=======
-    <Compile Include="ImagenNegocio.cs" />
->>>>>>> 19a890174731aa2a06db7b508cc5285dc3a21715
     <Compile Include="MarcaNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
