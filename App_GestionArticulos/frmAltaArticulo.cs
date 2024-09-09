@@ -35,7 +35,7 @@ namespace App_GestionArticulos
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             try
             {
-                comboBoxCategoria.DataSource = categoriaNegocio.listar();
+                comboBoxCategoria.DataSource = categoriaNegocio.Listar();
                 comboBoxCategoria.ValueMember = "Id";
                 comboBoxCategoria.DisplayMember = "Descripcion";
                 comboBoxMarca.DataSource = marcaNegocio.Listar();
