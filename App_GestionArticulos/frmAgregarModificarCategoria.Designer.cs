@@ -36,6 +36,7 @@
             // 
             // txtCategoria
             // 
+            this.txtCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategoria.Location = new System.Drawing.Point(60, 63);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(239, 20);
@@ -44,6 +45,7 @@
             // lblNuevaCategoria
             // 
             this.lblNuevaCategoria.AutoSize = true;
+            this.lblNuevaCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNuevaCategoria.Location = new System.Drawing.Point(60, 44);
             this.lblNuevaCategoria.Name = "lblNuevaCategoria";
             this.lblNuevaCategoria.Size = new System.Drawing.Size(87, 13);
@@ -52,6 +54,7 @@
             // 
             // btnAceptar
             // 
+            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Location = new System.Drawing.Point(60, 90);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
@@ -62,6 +65,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(224, 89);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
@@ -82,6 +86,7 @@
             this.Name = "frmAgregarModificarCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAgregarModificarCategoria";
+            this.Load += new System.EventHandler(this.frmAgregarModificarCategoria_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

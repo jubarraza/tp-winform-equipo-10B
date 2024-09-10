@@ -65,5 +65,23 @@ namespace App_GestionArticulos
 
             }
         }
+
+        private void frmAgregarModificarCategoria_Load(object sender, EventArgs e)
+        {
+            CategoriaNegocio catNegocio = new CategoriaNegocio();
+            try
+            {
+                if (categoria != null)
+                {
+                    txtCategoria.Text = categoria.Descripcion;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+        }
     }
 }
