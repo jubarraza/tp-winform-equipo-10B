@@ -26,6 +26,11 @@ namespace Dominio
 
         public float Precio { get; set; }
 
-       
+        public override string ToString()
+        {
+            return CodArt +" - "+ Nombre;
+        }
+
+
     }
 }

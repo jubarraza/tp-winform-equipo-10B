@@ -122,6 +122,20 @@ namespace Negocio
             }
         }
 
+        public Articulo BuscarArticulo(int id)
+        {
+            List<Articulo> listaArticulos = listar();
+
+            foreach(Articulo aux in listaArticulos)
+            {
+                if(aux.Id == id)
+                {
+                    return aux;
+                }
+            }
+            return null;
+        }
+
     }
 
 
