@@ -16,9 +16,7 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("select AR.Id, AR.Codigo, AR.Nombre, AR.Descripcion, MA.Id as IdMarca, MA.Descripcion as Marca," +
-                    " CA.Id as IdCategoria, CA.Descripcion as Categoria, AR.Precio from ARTICULOS as " +
-                    "AR join MARCAS as MA on AR.IdMarca = MA.Id join CATEGORIAS as CA on AR.IdCategoria = CA.Id");
+                datos.SetearConsulta("select AR.Id, AR.Codigo, AR.Nombre, AR.Descripcion, MA.Id as IdMarca, MA.Descripcion as Marca, CA.Id as IdCategoria, CA.Descripcion as Categoria, AR.Precio from ARTICULOS as AR left join MARCAS as MA on AR.IdMarca = MA.Id left join CATEGORIAS as CA on AR.IdCategoria = CA.Id");
                 datos.EjecutarLectura();
 
                 while(datos.Lector.Read())
@@ -29,13 +27,30 @@ namespace Negocio
                     articulo.Nombre = (string)datos.Lector["Nombre"];
                     articulo.Descripcion = (string)datos.Lector["Descripcion"];
                     articulo.Marca = new Marca();
-                    articulo.Marca.Id = (int)datos.Lector["IdMarca"];
-                    articulo.Marca.Nombre = (string)datos.Lector["Marca"];
-                    articulo.Categoria = new Categoria();
-                    articulo.Categoria.Id = (int)datos.Lector["IdCategoria"];
-                    articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
-                    articulo.Precio = (float)datos.Lector.GetDecimal(8);
+                    if (!(datos.Lector["Marca"] is DBNull))
+                    {
+                        articulo.Marca.Id = (int)datos.Lector["IdMarca"];
+                        articulo.Marca.Nombre = (string)datos.Lector["Marca"];
+                    }
+                    else
+                    {
+                        articulo.Marca.Nombre = "S/D";
+                    }
 
+                    articulo.Categoria = new Categoria();
+
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                    {
+                        //articulo.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                        articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    }
+                    else
+                    {  
+                        articulo.Categoria.Descripcion = "S/D";
+                    }
+
+                    articulo.Precio = (float)datos.Lector.GetDecimal(8);
+                    
                     lista.Add(articulo);    
                 }
 

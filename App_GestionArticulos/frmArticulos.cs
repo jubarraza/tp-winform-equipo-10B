@@ -31,8 +31,7 @@ namespace App_GestionArticulos
             {
                 dataGridArticulo.DataSource = articuloNegocio.listar();
                 dataGridArticulo.Columns["Id"].Visible = false;
-                //dataGridArticulo.Columns["IdMarca"].Visible = false;
-                //dataGridArticulo.Columns["IdCategoria"].Visible = false;
+                
             }
             catch (Exception)
             {
