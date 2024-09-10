@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("SELECT Id as IdImagen, IdArticulo as IdArticulo, ImagenUrl FROM IMAGENES ");
+                datos.SetearConsulta("SELECT i.Id as IdImagen, i.IdArticulo as IdArticulo, ImagenUrl FROM IMAGENES i INNER JOIN ARTICULOS a ON IdArticulo = a.Id");
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())
