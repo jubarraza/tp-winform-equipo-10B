@@ -41,7 +41,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(69, 49);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(112, 23);
-            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -51,8 +51,8 @@
             this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategorias.Location = new System.Drawing.Point(205, 49);
             this.dgvCategorias.Name = "dgvCategorias";
-            this.dgvCategorias.Size = new System.Drawing.Size(154, 188);
-            this.dgvCategorias.TabIndex = 1;
+            this.dgvCategorias.Size = new System.Drawing.Size(147, 188);
+            this.dgvCategorias.TabIndex = 0;
             // 
             // btnModificar
             // 
