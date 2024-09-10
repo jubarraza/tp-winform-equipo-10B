@@ -14,6 +14,8 @@ namespace App_GestionArticulos
 {
     public partial class frmArticulos : Form
     {
+
+        private List<Articulo> listaArticulos;
         public frmArticulos()
         {
             InitializeComponent();
@@ -24,14 +26,20 @@ namespace App_GestionArticulos
             cargar();    
         }
 
+        private void OcultarColumna()
+        {
+            dataGridArticulo.Columns["Id"].Visible = false;
+        }
+
         private void cargar()
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
-                dataGridArticulo.DataSource = articuloNegocio.listar();
-                dataGridArticulo.Columns["Id"].Visible = false;
-                
+                listaArticulos = articuloNegocio.listar();
+                dataGridArticulo.DataSource = listaArticulos;
+                OcultarColumna();
+
             }
             catch (Exception)
             {
@@ -65,6 +73,26 @@ namespace App_GestionArticulos
             frmInformacionArticulo info = new frmInformacionArticulo(seleccion);
             info.ShowDialog();
             cargar();
+        }
+
+
+        private void textBoxBusqueda_TextChanged_1(object sender, EventArgs e)
+        {
+            List<Articulo> listafiltrada;
+            string filtro = textBoxBusqueda.Text;
+
+            if (filtro != "")
+            {
+                listafiltrada = listaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listafiltrada = listaArticulos;
+            }
+
+            dataGridArticulo.DataSource = null;
+            dataGridArticulo.DataSource = listafiltrada;
+            OcultarColumna();
         }
     }
 }
