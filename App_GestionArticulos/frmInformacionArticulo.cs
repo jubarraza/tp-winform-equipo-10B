@@ -16,6 +16,8 @@ namespace App_GestionArticulos
     public partial class frmInformacionArticulo : Form
     {
         private List<Imagen> listaImagenes;
+        private List<Imagen> listaSeleccion;
+        private int indiceImagen = 0;
         public frmInformacionArticulo(Articulo seleccion)
         {
             InitializeComponent();
@@ -37,7 +39,6 @@ namespace App_GestionArticulos
             try
             {
                 listaImagenes = negocioImagen.Listar();
-                //dgv_InfoArticulo.DataSource = listaImagenes;
                 lbl_Articulo.Text = seleccion.CodArt + " - " + seleccion.Nombre;
                 lbl_Desc.Text = seleccion.Descripcion;
                 lbl_Marca.Text = seleccion.Marca.Nombre;
@@ -56,7 +57,7 @@ namespace App_GestionArticulos
         public void CargarImagenes(int idseleccion)
         {
             ImagenNegocio negocioImagen = new ImagenNegocio();
-            List<Imagen> listaSeleccion = new List<Imagen>();
+            listaSeleccion = new List<Imagen>();
 
             try
             {
@@ -72,11 +73,14 @@ namespace App_GestionArticulos
 
                 if (listaSeleccion.Count > 0)
                 {
-                    pb_Imagenes.Load(listaSeleccion[0].UrlImagen);
+                    pb_Imagenes.Load(listaSeleccion[indiceImagen].UrlImagen);
+                    ActualizarBotones();
+                    
                 }
                 else
                 {
                     pb_Imagenes.Load("https://static.vecteezy.com/system/resources/previews/005/720/408/non_2x/crossed-image-icon-picture-not-available-delete-picture-symbol-free-vector.jpg");
+                    DesactivarBotones();
                 }
 
 
@@ -84,6 +88,7 @@ namespace App_GestionArticulos
             catch (WebException webex) 
             {
                 pb_Imagenes.Load("https://static.vecteezy.com/system/resources/previews/005/720/408/non_2x/crossed-image-icon-picture-not-available-delete-picture-symbol-free-vector.jpg");
+                DesactivarBotones();    
             }
             catch (Exception ex)
             {
@@ -96,10 +101,52 @@ namespace App_GestionArticulos
 
         private void btn_Atras_Click(object sender, EventArgs e)
         {
-
+            if (indiceImagen > 0)
+            {
+                indiceImagen--;
+                pb_Imagenes.Load(listaSeleccion[indiceImagen].UrlImagen);
+            }
+            ActualizarBotones();
 
         }
 
+        private void btn_Adelante_Click(object sender, EventArgs e)
+        {
+            
+            if (indiceImagen < listaSeleccion.Count - 1)
+            {
+                indiceImagen++;
+                pb_Imagenes.Load(listaSeleccion[indiceImagen].UrlImagen);
+            }
+            ActualizarBotones();
+        }
 
+        private void ActualizarBotones()
+        {
+            if(indiceImagen > 0)
+            {
+                btn_Atras.Enabled = true;
+            }
+            if(indiceImagen == 0)
+            {
+                btn_Atras.Enabled = false;
+            }
+
+            if(indiceImagen < listaSeleccion.Count - 1)
+            {
+                btn_Adelante.Enabled = true;
+            }
+            if (indiceImagen == listaSeleccion.Count - 1)
+            {
+                btn_Adelante.Enabled = false;
+            }
+             
+        }
+
+        private void DesactivarBotones()
+        {
+            btn_Adelante.Enabled = false;
+            btn_Atras.Enabled = false;
+        }
     }
 }

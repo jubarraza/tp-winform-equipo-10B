@@ -147,6 +147,7 @@
             this.btn_Adelante.TabIndex = 22;
             this.btn_Adelante.Text = ">";
             this.btn_Adelante.UseVisualStyleBackColor = true;
+            this.btn_Adelante.Click += new System.EventHandler(this.btn_Adelante_Click);
             // 
             // lbl_Marca
             // 
