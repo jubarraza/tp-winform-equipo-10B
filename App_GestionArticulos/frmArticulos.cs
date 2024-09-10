@@ -56,5 +56,15 @@ namespace App_GestionArticulos
             Modificar.ShowDialog();
             cargar();
         }
+
+        private void buttonInformación_Click(object sender, EventArgs e)
+        {
+            Articulo seleccion;
+            seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
+
+            frmInformacionArticulo info = new frmInformacionArticulo(seleccion);
+            info.ShowDialog();
+            cargar();
+        }
     }
 }

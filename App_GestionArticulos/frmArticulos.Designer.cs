@@ -40,18 +40,21 @@
             // 
             this.dataGridArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridArticulo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridArticulo.Location = new System.Drawing.Point(34, 51);
+            this.dataGridArticulo.Location = new System.Drawing.Point(45, 63);
+            this.dataGridArticulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridArticulo.MultiSelect = false;
             this.dataGridArticulo.Name = "dataGridArticulo";
+            this.dataGridArticulo.RowHeadersWidth = 51;
             this.dataGridArticulo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridArticulo.Size = new System.Drawing.Size(537, 200);
+            this.dataGridArticulo.Size = new System.Drawing.Size(716, 246);
             this.dataGridArticulo.TabIndex = 0;
             // 
             // buttonAgregar
             // 
-            this.buttonAgregar.Location = new System.Drawing.Point(611, 51);
+            this.buttonAgregar.Location = new System.Drawing.Point(815, 63);
+            this.buttonAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(144, 32);
+            this.buttonAgregar.Size = new System.Drawing.Size(192, 39);
             this.buttonAgregar.TabIndex = 1;
             this.buttonAgregar.Text = "Agregar";
             this.buttonAgregar.UseVisualStyleBackColor = true;
@@ -59,9 +62,10 @@
             // 
             // buttonModificar
             // 
-            this.buttonModificar.Location = new System.Drawing.Point(611, 107);
+            this.buttonModificar.Location = new System.Drawing.Point(815, 132);
+            this.buttonModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonModificar.Name = "buttonModificar";
-            this.buttonModificar.Size = new System.Drawing.Size(144, 32);
+            this.buttonModificar.Size = new System.Drawing.Size(192, 39);
             this.buttonModificar.TabIndex = 2;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
@@ -69,32 +73,36 @@
             // 
             // buttonEliminar
             // 
-            this.buttonEliminar.Location = new System.Drawing.Point(611, 167);
+            this.buttonEliminar.Location = new System.Drawing.Point(815, 206);
+            this.buttonEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(144, 32);
+            this.buttonEliminar.Size = new System.Drawing.Size(192, 39);
             this.buttonEliminar.TabIndex = 3;
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.UseVisualStyleBackColor = true;
             // 
             // buttonInformación
             // 
-            this.buttonInformación.Location = new System.Drawing.Point(611, 219);
+            this.buttonInformación.Location = new System.Drawing.Point(815, 270);
+            this.buttonInformación.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonInformación.Name = "buttonInformación";
-            this.buttonInformación.Size = new System.Drawing.Size(144, 32);
+            this.buttonInformación.Size = new System.Drawing.Size(192, 39);
             this.buttonInformación.TabIndex = 4;
             this.buttonInformación.Text = "Información";
             this.buttonInformación.UseVisualStyleBackColor = true;
+            this.buttonInformación.Click += new System.EventHandler(this.buttonInformación_Click);
             // 
             // frmArticulos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(781, 353);
+            this.ClientSize = new System.Drawing.Size(1041, 434);
             this.Controls.Add(this.buttonInformación);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.dataGridArticulo);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Articulos";
