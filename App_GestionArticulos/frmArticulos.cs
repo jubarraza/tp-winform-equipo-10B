@@ -94,5 +94,28 @@ namespace App_GestionArticulos
             dataGridArticulo.DataSource = listafiltrada;
             OcultarColumna();
         }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio artNegocio = new ArticuloNegocio();
+            Articulo seleccion;
+            try
+            {
+                DialogResult respuesta= MessageBox.Show("¿Confirma la Eliminacion? ", "Eliminar Categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
+                    artNegocio.Eliminar(seleccion.Id);
+                    cargar();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
     }
 }
