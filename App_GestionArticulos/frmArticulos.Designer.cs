@@ -35,6 +35,7 @@
             this.buttonInformación = new System.Windows.Forms.Button();
             this.textBoxBusqueda = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonFiltroAvanz = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@
             this.dataGridArticulo.Name = "dataGridArticulo";
             this.dataGridArticulo.RowHeadersWidth = 51;
             this.dataGridArticulo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridArticulo.Size = new System.Drawing.Size(537, 200);
+            this.dataGridArticulo.Size = new System.Drawing.Size(537, 248);
             this.dataGridArticulo.TabIndex = 0;
             // 
             // buttonAgregar
@@ -82,7 +83,7 @@
             // 
             // buttonInformación
             // 
-            this.buttonInformación.Location = new System.Drawing.Point(611, 219);
+            this.buttonInformación.Location = new System.Drawing.Point(611, 267);
             this.buttonInformación.Name = "buttonInformación";
             this.buttonInformación.Size = new System.Drawing.Size(144, 32);
             this.buttonInformación.TabIndex = 4;
@@ -108,11 +109,22 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Filtrar Articulo:";
             // 
+            // buttonFiltroAvanz
+            // 
+            this.buttonFiltroAvanz.Location = new System.Drawing.Point(611, 219);
+            this.buttonFiltroAvanz.Name = "buttonFiltroAvanz";
+            this.buttonFiltroAvanz.Size = new System.Drawing.Size(144, 32);
+            this.buttonFiltroAvanz.TabIndex = 7;
+            this.buttonFiltroAvanz.Text = "Busqueda Avanzada";
+            this.buttonFiltroAvanz.UseVisualStyleBackColor = true;
+            this.buttonFiltroAvanz.Click += new System.EventHandler(this.buttonFiltroAvanz_Click);
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 353);
+            this.Controls.Add(this.buttonFiltroAvanz);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxBusqueda);
             this.Controls.Add(this.buttonInformación);
@@ -139,5 +151,6 @@
         private System.Windows.Forms.Button buttonInformación;
         private System.Windows.Forms.TextBox textBoxBusqueda;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonFiltroAvanz;
     }
 }

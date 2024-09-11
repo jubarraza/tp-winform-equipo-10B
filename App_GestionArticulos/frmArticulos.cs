@@ -117,5 +117,12 @@ namespace App_GestionArticulos
             }
 
         }
+
+        private void buttonFiltroAvanz_Click(object sender, EventArgs e)
+        {
+            frmFiltroAvanzado FiltroAvanzado = new frmFiltroAvanzado();
+            FiltroAvanzado.ShowDialog();
+
+        }
     }
 }
