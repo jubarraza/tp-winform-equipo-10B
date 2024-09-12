@@ -43,28 +43,30 @@ namespace App_GestionArticulos
                 }
 
                 categoria.Descripcion = txtCategoria.Text;
+                bool valido = catNegocio.validarIngreso(categoria);
 
-                if (categoria.Id != 0)
+                if (valido) 
                 {
-                    catNegocio.Modificar(categoria);
-                    MessageBox.Show("Modificado con Exito");
-                }
-                else
-                {
-                    bool valido = catNegocio.validarIngreso(categoria);
-                    if (!valido)
+                    if (categoria.Id != 0)
                     {
-                        MessageBox.Show("Categoria Ya Existente!");
-
+                        catNegocio.Modificar(categoria);
+                        MessageBox.Show("Modificado con Exito.", "Modificacion realizada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     else
                     {
-
                         catNegocio.Agregar(categoria);
-                        MessageBox.Show("Agregado con Exito");
+                        MessageBox.Show("Agregado con Exito", "Categoria creada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
+
+                    this.Close();
                 }
-                this.Close();
+                else
+                {
+                    MessageBox.Show("Categoria Ya Existente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+                
             }
             catch (Exception ex)
             {
