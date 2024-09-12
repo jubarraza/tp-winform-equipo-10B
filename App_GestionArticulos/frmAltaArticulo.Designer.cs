@@ -113,7 +113,7 @@
             // textBoxCodigo
             // 
             this.textBoxCodigo.Location = new System.Drawing.Point(189, 73);
-            this.textBoxCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCodigo.Name = "textBoxCodigo";
             this.textBoxCodigo.Size = new System.Drawing.Size(200, 22);
             this.textBoxCodigo.TabIndex = 6;
@@ -121,7 +121,7 @@
             // textBoxNombre
             // 
             this.textBoxNombre.Location = new System.Drawing.Point(189, 127);
-            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(200, 22);
             this.textBoxNombre.TabIndex = 7;
@@ -129,7 +129,7 @@
             // textBoxDescrip
             // 
             this.textBoxDescrip.Location = new System.Drawing.Point(189, 181);
-            this.textBoxDescrip.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxDescrip.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDescrip.Name = "textBoxDescrip";
             this.textBoxDescrip.Size = new System.Drawing.Size(200, 22);
             this.textBoxDescrip.TabIndex = 8;
@@ -139,7 +139,7 @@
             this.comboBoxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMarca.FormattingEnabled = true;
             this.comboBoxMarca.Location = new System.Drawing.Point(189, 241);
-            this.comboBoxMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxMarca.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxMarca.Name = "comboBoxMarca";
             this.comboBoxMarca.Size = new System.Drawing.Size(200, 24);
             this.comboBoxMarca.TabIndex = 9;
@@ -149,7 +149,7 @@
             this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategoria.FormattingEnabled = true;
             this.comboBoxCategoria.Location = new System.Drawing.Point(189, 304);
-            this.comboBoxCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxCategoria.Name = "comboBoxCategoria";
             this.comboBoxCategoria.Size = new System.Drawing.Size(200, 24);
             this.comboBoxCategoria.TabIndex = 10;
@@ -157,15 +157,15 @@
             // textBoxPrecio
             // 
             this.textBoxPrecio.Location = new System.Drawing.Point(189, 373);
-            this.textBoxPrecio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPrecio.Name = "textBoxPrecio";
             this.textBoxPrecio.Size = new System.Drawing.Size(200, 22);
             this.textBoxPrecio.TabIndex = 11;
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(51, 423);
-            this.buttonAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAceptar.Location = new System.Drawing.Point(297, 436);
+            this.buttonAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(167, 33);
             this.buttonAceptar.TabIndex = 12;
@@ -175,8 +175,8 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(261, 423);
-            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCancelar.Location = new System.Drawing.Point(507, 436);
+            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(167, 33);
             this.buttonCancelar.TabIndex = 13;
@@ -188,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 471);
+            this.ClientSize = new System.Drawing.Size(911, 526);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.textBoxPrecio);
@@ -203,7 +203,7 @@
             this.Controls.Add(this.labelDesc);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelCodigo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAltaArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta de articulo";

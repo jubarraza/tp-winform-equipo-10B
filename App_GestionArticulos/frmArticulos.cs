@@ -29,7 +29,7 @@ namespace App_GestionArticulos
         private void FormatoColumnas()
         {
             dataGridArticulo.Columns["CodArt"].Width = 60;
-            dataGridArticulo.Columns["Precio"].DefaultCellStyle.Format = "C2";
+            dataGridArticulo.Columns["Precio"].DefaultCellStyle.Format = "$ 0.00##";
             dataGridArticulo.Columns["Nombre"].Width = 124;
         }
         private void OcultarColumna()
@@ -47,6 +47,7 @@ namespace App_GestionArticulos
                 dataGridArticulo.DataSource = listaArticulos;
                 FormatoColumnas();
                 OcultarColumna();
+                textBoxBusqueda.Text = string.Empty;
 
             }
             catch (Exception)
@@ -66,21 +67,51 @@ namespace App_GestionArticulos
         private void informacionDetalladaArticulo()
         {
             Articulo seleccion;
-            seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
-
-            frmInformacionArticulo info = new frmInformacionArticulo(seleccion);
-            info.ShowDialog();
-            cargar();
+            try
+            {
+                if (dataGridArticulo.CurrentRow is null)
+                {
+                    MessageBox.Show("No hay articulos seleccionados", "Seleccione un articulo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
+                    frmInformacionArticulo info = new frmInformacionArticulo(seleccion);
+                    info.ShowDialog();
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
         private void modificarArticulo()
         {
             Articulo seleccion;
-            seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
+            try
+            {
+                if (dataGridArticulo.CurrentRow is null)
+                {
+                    MessageBox.Show("No hay articulos seleccionados", "Seleccione un articulo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
 
-            frmAltaArticulo Modificar = new frmAltaArticulo(seleccion);
-            Modificar.ShowDialog();
-            cargar();
+                    frmAltaArticulo Modificar = new frmAltaArticulo(seleccion);
+                    Modificar.ShowDialog();
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
         private void eliminarArticulo()
@@ -89,15 +120,21 @@ namespace App_GestionArticulos
             Articulo seleccion;
             try
             {
-                DialogResult respuesta = MessageBox.Show("¿Confirma la Eliminacion? ", "Eliminar Categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (respuesta == DialogResult.Yes)
+                if (dataGridArticulo.CurrentRow is null)
                 {
-                    seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
-                    artNegocio.Eliminar(seleccion.Id);
-                    cargar();
-
+                    MessageBox.Show("No hay articulos seleccionados", "Seleccione un articulo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Confirma la Eliminacion? ", "Eliminar Categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
+                        artNegocio.Eliminar(seleccion.Id);
+                        cargar();
 
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -142,6 +179,7 @@ namespace App_GestionArticulos
 
             dataGridArticulo.DataSource = null;
             dataGridArticulo.DataSource = listafiltrada;
+            FormatoColumnas();
             OcultarColumna();
         }
 
@@ -208,12 +246,17 @@ namespace App_GestionArticulos
 
         private void tsm_sobreGestorDeProductos_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Gestor de Productos fue realizado por el equipo 10B para la materia Programacion 3.\n\nSus integrantes son:\n - Julieta Barraza.\n - Damian Alejandro Sanchez Di Giovanni.\n - Jonatan Rodrigo Guzman.", "Creditos", MessageBoxButtons.OK);
+            MessageBox.Show("La aplicacion \"Gestor de Productos\" fue realizada por el equipo 10B para la materia Programacion 3.\n\nSus integrantes son:\n - Julieta Barraza.\n - Damian Alejandro Sanchez Di Giovanni.\n - Jonatan Rodrigo Guzman.", "Acerca de", MessageBoxButtons.OK);
         }
 
         private void tsm_salir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void buttonBorrarFiltros_Click(object sender, EventArgs e)
+        {
+            cargar();
         }
     }
 }

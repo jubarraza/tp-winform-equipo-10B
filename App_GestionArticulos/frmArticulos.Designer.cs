@@ -51,8 +51,9 @@
             this.tsm_agregarCategorias = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_opciones = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_sobreGestorDeProductos = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsm_salir = new System.Windows.Forms.ToolStripMenuItem();
             this.ts_separador = new System.Windows.Forms.ToolStripSeparator();
+            this.tsm_salir = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonBorrarFiltros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArticulo)).BeginInit();
             this.barraMenu.SuspendLayout();
             this.SuspendLayout();
@@ -136,10 +137,10 @@
             // 
             // buttonFiltroAvanz
             // 
-            this.buttonFiltroAvanz.Location = new System.Drawing.Point(631, 429);
+            this.buttonFiltroAvanz.Location = new System.Drawing.Point(506, 431);
             this.buttonFiltroAvanz.Margin = new System.Windows.Forms.Padding(4);
             this.buttonFiltroAvanz.Name = "buttonFiltroAvanz";
-            this.buttonFiltroAvanz.Size = new System.Drawing.Size(137, 31);
+            this.buttonFiltroAvanz.Size = new System.Drawing.Size(129, 31);
             this.buttonFiltroAvanz.TabIndex = 7;
             this.buttonFiltroAvanz.Text = "Filtros avanzados";
             this.buttonFiltroAvanz.UseVisualStyleBackColor = true;
@@ -157,7 +158,7 @@
             // 
             // barraMenu
             // 
-            this.barraMenu.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.barraMenu.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.barraMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.barraMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsm_articulos,
@@ -221,14 +222,14 @@
             // tsm_verMarcas
             // 
             this.tsm_verMarcas.Name = "tsm_verMarcas";
-            this.tsm_verMarcas.Size = new System.Drawing.Size(224, 26);
+            this.tsm_verMarcas.Size = new System.Drawing.Size(191, 26);
             this.tsm_verMarcas.Text = "Ver Marcas";
             this.tsm_verMarcas.Click += new System.EventHandler(this.tsm_verMarcas_Click);
             // 
             // tsm_agregarMarca
             // 
             this.tsm_agregarMarca.Name = "tsm_agregarMarca";
-            this.tsm_agregarMarca.Size = new System.Drawing.Size(224, 26);
+            this.tsm_agregarMarca.Size = new System.Drawing.Size(191, 26);
             this.tsm_agregarMarca.Text = "Agregar Marca";
             this.tsm_agregarMarca.Click += new System.EventHandler(this.tsm_agregarMarca_Click);
             // 
@@ -244,14 +245,14 @@
             // tsm_verCategorias
             // 
             this.tsm_verCategorias.Name = "tsm_verCategorias";
-            this.tsm_verCategorias.Size = new System.Drawing.Size(224, 26);
+            this.tsm_verCategorias.Size = new System.Drawing.Size(221, 26);
             this.tsm_verCategorias.Text = "Ver Categorias";
             this.tsm_verCategorias.Click += new System.EventHandler(this.tsm_verCategorias_Click);
             // 
             // tsm_agregarCategorias
             // 
             this.tsm_agregarCategorias.Name = "tsm_agregarCategorias";
-            this.tsm_agregarCategorias.Size = new System.Drawing.Size(224, 26);
+            this.tsm_agregarCategorias.Size = new System.Drawing.Size(221, 26);
             this.tsm_agregarCategorias.Text = "Agregar Categorias";
             this.tsm_agregarCategorias.Click += new System.EventHandler(this.tsm_agregarCategorias_Click);
             // 
@@ -272,6 +273,11 @@
             this.tsm_sobreGestorDeProductos.Text = "Sobre Gestor de Productos";
             this.tsm_sobreGestorDeProductos.Click += new System.EventHandler(this.tsm_sobreGestorDeProductos_Click);
             // 
+            // ts_separador
+            // 
+            this.ts_separador.Name = "ts_separador";
+            this.ts_separador.Size = new System.Drawing.Size(266, 6);
+            // 
             // tsm_salir
             // 
             this.tsm_salir.Name = "tsm_salir";
@@ -279,16 +285,23 @@
             this.tsm_salir.Text = "Salir";
             this.tsm_salir.Click += new System.EventHandler(this.tsm_salir_Click);
             // 
-            // ts_separador
+            // buttonBorrarFiltros
             // 
-            this.ts_separador.Name = "ts_separador";
-            this.ts_separador.Size = new System.Drawing.Size(266, 6);
+            this.buttonBorrarFiltros.Location = new System.Drawing.Point(643, 431);
+            this.buttonBorrarFiltros.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBorrarFiltros.Name = "buttonBorrarFiltros";
+            this.buttonBorrarFiltros.Size = new System.Drawing.Size(125, 31);
+            this.buttonBorrarFiltros.TabIndex = 10;
+            this.buttonBorrarFiltros.Text = "Borrar filtros";
+            this.buttonBorrarFiltros.UseVisualStyleBackColor = true;
+            this.buttonBorrarFiltros.Click += new System.EventHandler(this.buttonBorrarFiltros_Click);
             // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1054, 514);
+            this.Controls.Add(this.buttonBorrarFiltros);
             this.Controls.Add(this.lbl_Titulo_Articulos);
             this.Controls.Add(this.buttonFiltroAvanz);
             this.Controls.Add(this.lbl_BusquedaNombre);
@@ -339,5 +352,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsm_sobreGestorDeProductos;
         private System.Windows.Forms.ToolStripSeparator ts_separador;
         private System.Windows.Forms.ToolStripMenuItem tsm_salir;
+        private System.Windows.Forms.Button buttonBorrarFiltros;
     }
 }
