@@ -50,12 +50,12 @@ namespace App_GestionArticulos
                     if (categoria.Id != 0)
                     {
                         catNegocio.Modificar(categoria);
-                        MessageBox.Show("Modificado con Exito.", "Modificacion realizada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("Categoria modificada con Exito.", "Modificacion realizada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     else
                     {
                         catNegocio.Agregar(categoria);
-                        MessageBox.Show("Agregado con Exito", "Categoria creada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("Categoria agregada con Exito", "Categoria creada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
 
                     this.Close();

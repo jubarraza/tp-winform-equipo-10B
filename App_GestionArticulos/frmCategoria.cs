@@ -64,7 +64,7 @@ namespace App_GestionArticulos
             Categoria seleccion;
             try
             {
-                DialogResult respuesta = MessageBox.Show("Desea Eliminarlo? ", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult respuesta = MessageBox.Show("¿Desea eliminar la categoria?", "Eliminar Categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
                     seleccion = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
@@ -89,6 +89,12 @@ namespace App_GestionArticulos
             }
 
         }
+
+        private void btn_VolverMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
 

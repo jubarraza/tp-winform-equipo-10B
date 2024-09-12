@@ -37,24 +37,24 @@
             // lbl_NombreMarca
             // 
             this.lbl_NombreMarca.AutoSize = true;
-            this.lbl_NombreMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NombreMarca.Location = new System.Drawing.Point(127, 76);
+            this.lbl_NombreMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_NombreMarca.Location = new System.Drawing.Point(50, 54);
             this.lbl_NombreMarca.Name = "lbl_NombreMarca";
-            this.lbl_NombreMarca.Size = new System.Drawing.Size(193, 25);
+            this.lbl_NombreMarca.Size = new System.Drawing.Size(125, 20);
             this.lbl_NombreMarca.TabIndex = 0;
-            this.lbl_NombreMarca.Text = "Nombre de la marca:";
+            this.lbl_NombreMarca.Text = "Nombre marca:";
             // 
             // txt_NombreMarca
             // 
             this.txt_NombreMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_NombreMarca.Location = new System.Drawing.Point(324, 73);
+            this.txt_NombreMarca.Location = new System.Drawing.Point(54, 77);
             this.txt_NombreMarca.Name = "txt_NombreMarca";
-            this.txt_NombreMarca.Size = new System.Drawing.Size(207, 30);
+            this.txt_NombreMarca.Size = new System.Drawing.Size(362, 30);
             this.txt_NombreMarca.TabIndex = 1;
             // 
             // btn_Guardar
             // 
-            this.btn_Guardar.Location = new System.Drawing.Point(180, 145);
+            this.btn_Guardar.Location = new System.Drawing.Point(92, 130);
             this.btn_Guardar.Name = "btn_Guardar";
             this.btn_Guardar.Size = new System.Drawing.Size(140, 39);
             this.btn_Guardar.TabIndex = 2;
@@ -64,7 +64,7 @@
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(326, 145);
+            this.btn_Cancelar.Location = new System.Drawing.Point(238, 130);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(140, 39);
             this.btn_Cancelar.TabIndex = 3;
@@ -76,14 +76,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 272);
+            this.ClientSize = new System.Drawing.Size(464, 228);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Guardar);
             this.Controls.Add(this.txt_NombreMarca);
             this.Controls.Add(this.lbl_NombreMarca);
             this.Name = "frmAlta_Edicion_Marca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Agregar Marca";
+            this.Text = "Agregar nueva Marca";
             this.Load += new System.EventHandler(this.frmAlta_Edicion_Marca_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

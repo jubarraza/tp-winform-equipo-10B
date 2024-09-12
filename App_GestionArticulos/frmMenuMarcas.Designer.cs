@@ -66,10 +66,11 @@
             // lbl_Titulo_Menu_Marcas
             // 
             this.lbl_Titulo_Menu_Marcas.AutoSize = true;
-            this.lbl_Titulo_Menu_Marcas.Location = new System.Drawing.Point(139, 28);
+            this.lbl_Titulo_Menu_Marcas.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Titulo_Menu_Marcas.Location = new System.Drawing.Point(99, 27);
             this.lbl_Titulo_Menu_Marcas.Name = "lbl_Titulo_Menu_Marcas";
-            this.lbl_Titulo_Menu_Marcas.Size = new System.Drawing.Size(125, 16);
-            this.lbl_Titulo_Menu_Marcas.TabIndex = 1;
+            this.lbl_Titulo_Menu_Marcas.Size = new System.Drawing.Size(212, 31);
+            this.lbl_Titulo_Menu_Marcas.TabIndex = 5;
             this.lbl_Titulo_Menu_Marcas.Text = "Marcas disponibles";
             // 
             // btn_AgregarMarca
@@ -78,7 +79,7 @@
             this.btn_AgregarMarca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_AgregarMarca.Name = "btn_AgregarMarca";
             this.btn_AgregarMarca.Size = new System.Drawing.Size(183, 43);
-            this.btn_AgregarMarca.TabIndex = 2;
+            this.btn_AgregarMarca.TabIndex = 1;
             this.btn_AgregarMarca.Text = "Agregar";
             this.btn_AgregarMarca.UseVisualStyleBackColor = true;
             this.btn_AgregarMarca.Click += new System.EventHandler(this.btn_AgregarMarca_Click);
@@ -89,7 +90,7 @@
             this.btn_Modificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Modificar.Name = "btn_Modificar";
             this.btn_Modificar.Size = new System.Drawing.Size(183, 43);
-            this.btn_Modificar.TabIndex = 3;
+            this.btn_Modificar.TabIndex = 2;
             this.btn_Modificar.Text = "Modificar";
             this.btn_Modificar.UseVisualStyleBackColor = true;
             this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
@@ -100,7 +101,7 @@
             this.btn_Eliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Eliminar.Name = "btn_Eliminar";
             this.btn_Eliminar.Size = new System.Drawing.Size(183, 43);
-            this.btn_Eliminar.TabIndex = 4;
+            this.btn_Eliminar.TabIndex = 3;
             this.btn_Eliminar.Text = "Eliminar";
             this.btn_Eliminar.UseVisualStyleBackColor = true;
             this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
@@ -111,7 +112,7 @@
             this.btn_VolverMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_VolverMenu.Name = "btn_VolverMenu";
             this.btn_VolverMenu.Size = new System.Drawing.Size(227, 38);
-            this.btn_VolverMenu.TabIndex = 5;
+            this.btn_VolverMenu.TabIndex = 4;
             this.btn_VolverMenu.Text = "Volver al Menu Principal";
             this.btn_VolverMenu.UseVisualStyleBackColor = true;
             this.btn_VolverMenu.Click += new System.EventHandler(this.btn_VolverMenu_Click);

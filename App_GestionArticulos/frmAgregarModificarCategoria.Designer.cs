@@ -36,39 +36,43 @@
             // 
             // txtCategoria
             // 
-            this.txtCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategoria.Location = new System.Drawing.Point(60, 63);
+            this.txtCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategoria.Location = new System.Drawing.Point(54, 77);
+            this.txtCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(239, 20);
+            this.txtCategoria.Size = new System.Drawing.Size(362, 30);
             this.txtCategoria.TabIndex = 0;
             // 
             // lblNuevaCategoria
             // 
             this.lblNuevaCategoria.AutoSize = true;
-            this.lblNuevaCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNuevaCategoria.Location = new System.Drawing.Point(60, 44);
+            this.lblNuevaCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNuevaCategoria.Location = new System.Drawing.Point(50, 54);
+            this.lblNuevaCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNuevaCategoria.Name = "lblNuevaCategoria";
-            this.lblNuevaCategoria.Size = new System.Drawing.Size(87, 13);
+            this.lblNuevaCategoria.Size = new System.Drawing.Size(150, 20);
             this.lblNuevaCategoria.TabIndex = 1;
-            this.lblNuevaCategoria.Text = "Nueva Categoria";
+            this.lblNuevaCategoria.Text = "Nombre Categoria:";
             // 
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(60, 90);
+            this.btnAceptar.Location = new System.Drawing.Point(92, 130);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(140, 39);
             this.btnAceptar.TabIndex = 2;
-            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.Text = "Guardar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click_1);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(224, 89);
+            this.btnCancelar.Location = new System.Drawing.Point(238, 130);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(140, 39);
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -76,16 +80,17 @@
             // 
             // frmAgregarModificarCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 162);
+            this.ClientSize = new System.Drawing.Size(464, 228);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.lblNuevaCategoria);
             this.Controls.Add(this.txtCategoria);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmAgregarModificarCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAgregarModificarCategoria";
+            this.Text = "Agregar nueva Categoria";
             this.Load += new System.EventHandler(this.frmAgregarModificarCategoria_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
