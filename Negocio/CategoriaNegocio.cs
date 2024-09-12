@@ -121,6 +121,24 @@ namespace Negocio
             return true;
         }
 
+        public bool validarIngreso(Categoria aux)
+        {
+            List<Categoria> listaCategoria = new List<Categoria>();
+            CategoriaNegocio catNegocio = new CategoriaNegocio();
+
+            listaCategoria = catNegocio.Listar();
+
+            foreach (Categoria categoria in listaCategoria)
+            {
+                if (categoria.Descripcion.ToLower() == aux.Descripcion.ToLower())
+                {
+                    return false;
+                }
+
+            }
+
+            return true;
+        }
 
     }
 }

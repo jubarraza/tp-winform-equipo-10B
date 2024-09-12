@@ -45,8 +45,18 @@ namespace App_GestionArticulos
 
                 if (marca.Id == 0)
                 {
-                    negocioMarca.Agregar(marca);
-                    MessageBox.Show("Marca agregada exitosamente");
+                    bool valido = negocioMarca.validarIngreso(marca);
+                    if (!valido)
+                    {
+                        MessageBox.Show("Marca Ya existente!");
+
+                    }
+                    else
+                    {
+
+                        negocioMarca.Agregar(marca);
+                        MessageBox.Show("Marca agregada exitosamente");
+                    }
                 }
                 else
                 {

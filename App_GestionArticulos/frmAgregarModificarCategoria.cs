@@ -51,8 +51,18 @@ namespace App_GestionArticulos
                 }
                 else
                 {
-                    catNegocio.Agregar(categoria);
-                    MessageBox.Show("Agregado con Exito");
+                    bool valido = catNegocio.validarIngreso(categoria);
+                    if (!valido)
+                    {
+                        MessageBox.Show("Categoria Ya Existente!");
+
+                    }
+                    else
+                    {
+
+                        catNegocio.Agregar(categoria);
+                        MessageBox.Show("Agregado con Exito");
+                    }
                 }
                 this.Close();
             }

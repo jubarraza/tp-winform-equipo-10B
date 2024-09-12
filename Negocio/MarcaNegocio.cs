@@ -117,6 +117,25 @@ namespace Negocio
             return true;
         }
 
+        public bool validarIngreso(Marca aux)
+        {
+            List<Marca> listaMarca = new List<Marca>();
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+
+            listaMarca = marcaNegocio.Listar();
+
+            foreach (Marca marca in listaMarca)
+            {
+                if (marca.Nombre.ToLower() == aux.Nombre.ToLower())
+                {
+                    return false;
+                }
+
+            }
+
+            return true;
+        }
+
     }
 
 }
