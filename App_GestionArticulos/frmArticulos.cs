@@ -26,9 +26,16 @@ namespace App_GestionArticulos
             cargar();    
         }
 
+        private void FormatoColumnas()
+        {
+            dataGridArticulo.Columns["CodArt"].Width = 60;
+            dataGridArticulo.Columns["Precio"].DefaultCellStyle.Format = "C2";
+            dataGridArticulo.Columns["Nombre"].Width = 124;
+        }
         private void OcultarColumna()
         {
             dataGridArticulo.Columns["Id"].Visible = false;
+            dataGridArticulo.Columns["Descripcion"].Visible = false;
         }
 
         private void cargar()
@@ -38,6 +45,7 @@ namespace App_GestionArticulos
             {
                 listaArticulos = articuloNegocio.listar();
                 dataGridArticulo.DataSource = listaArticulos;
+                FormatoColumnas();
                 OcultarColumna();
 
             }
