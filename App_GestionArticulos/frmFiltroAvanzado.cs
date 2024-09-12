@@ -165,7 +165,7 @@ namespace App_GestionArticulos
                     articulos.Add(articulo);
                 }
 
-                IntPasodelistascs.TrasadarLista(articulos);
+                IntPasodelistascs.TrasladarLista(articulos);
                 this.Close();
 
             }

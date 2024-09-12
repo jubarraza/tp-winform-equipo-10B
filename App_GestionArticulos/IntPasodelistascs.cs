@@ -9,6 +9,6 @@ namespace App_GestionArticulos
 {
     public interface IntPasodelistascs
     {
-        void TrasadarLista(List<Articulo> articulos);
+        void TrasladarLista(List<Articulo> articulos);
     }
 }
