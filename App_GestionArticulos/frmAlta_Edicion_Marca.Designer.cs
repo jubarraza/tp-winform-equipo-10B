@@ -51,6 +51,7 @@
             this.txt_NombreMarca.Name = "txt_NombreMarca";
             this.txt_NombreMarca.Size = new System.Drawing.Size(362, 30);
             this.txt_NombreMarca.TabIndex = 1;
+            this.txt_NombreMarca.TextChanged += new System.EventHandler(this.txt_NombreMarca_TextChanged);
             // 
             // btn_Guardar
             // 

@@ -38,10 +38,11 @@
             // 
             this.txtCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategoria.Location = new System.Drawing.Point(54, 77);
-            this.txtCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(362, 30);
             this.txtCategoria.TabIndex = 0;
+            this.txtCategoria.TextChanged += new System.EventHandler(this.txtCategoria_TextChanged);
             // 
             // lblNuevaCategoria
             // 
@@ -58,7 +59,7 @@
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Location = new System.Drawing.Point(92, 130);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(140, 39);
             this.btnAceptar.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(238, 130);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(140, 39);
             this.btnCancelar.TabIndex = 3;
@@ -87,7 +88,7 @@
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.lblNuevaCategoria);
             this.Controls.Add(this.txtCategoria);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAgregarModificarCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar nueva Categoria";

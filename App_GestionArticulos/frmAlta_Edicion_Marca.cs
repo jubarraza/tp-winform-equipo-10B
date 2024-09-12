@@ -18,12 +18,14 @@ namespace App_GestionArticulos
         public frmAlta_Edicion_Marca()
         {
             InitializeComponent();
+            btn_Guardar.Enabled = false;
         }
 
         public frmAlta_Edicion_Marca(Marca aux)
         {
             InitializeComponent();
             this.marca = aux;
+            btn_Guardar.Enabled = false;
             Text = "Modificar Marca";
         }
 
@@ -51,8 +53,6 @@ namespace App_GestionArticulos
                     {
                         negocioMarca.Modificar(marca);
                         MessageBox.Show("Marca modificada con Exito.", "Modificacion realizada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-
                     }
                     else
                     {
@@ -95,5 +95,15 @@ namespace App_GestionArticulos
             }
         }
 
+        private void txt_NombreMarca_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_NombreMarca.Text.Length > 0) {
+                btn_Guardar.Enabled = true;
+            }
+            if (txt_NombreMarca.Text.Length == 0)
+            {
+                btn_Guardar.Enabled = false;
+            }
+        }
     }
 }

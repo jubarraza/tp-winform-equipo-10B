@@ -18,12 +18,14 @@ namespace App_GestionArticulos
         public frmAgregarModificarCategoria()
         {
             InitializeComponent();
+            btnAceptar.Enabled = false;
         }
 
         public frmAgregarModificarCategoria(Categoria aux)
         {
             InitializeComponent();
             this.categoria = aux;
+            btnAceptar.Enabled = false;
             Text = "Modificar Categoria";
         }
 
@@ -94,6 +96,18 @@ namespace App_GestionArticulos
             }
 
 
+        }
+
+        private void txtCategoria_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCategoria.Text.Length > 0)
+            {
+                btnAceptar.Enabled = true;
+            }
+            if (txtCategoria.Text.Length == 0)
+            {
+                btnAceptar.Enabled = false;
+            }
         }
     }
 }
