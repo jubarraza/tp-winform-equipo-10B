@@ -144,6 +144,7 @@ namespace Negocio
                 AccesoDatos datos = new AccesoDatos();
                 datos.SetearConsulta("delete from Articulos where Id = @id");
                 datos.SetearParametro("@id", id);
+                eliminarImagenesAsociadas(id);
                 datos.EjecutarAccion();
 
             }
@@ -154,6 +155,20 @@ namespace Negocio
             }
         }
 
+        private void eliminarImagenesAsociadas(int id)
+        {
+            ImagenNegocio negocioImagen = new ImagenNegocio();
+            try
+            {
+                negocioImagen.Eliminar(id);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 
 

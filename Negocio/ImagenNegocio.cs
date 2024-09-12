@@ -55,5 +55,22 @@ namespace Negocio
             }
 
         }
+
+        public void Eliminar(int idArt)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("DELETE FROM IMAGENES WHERE IdArticulo = @IdArticulo");
+                datos.SetearParametro("@IdArticulo", idArt);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
