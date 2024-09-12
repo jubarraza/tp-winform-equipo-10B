@@ -42,29 +42,31 @@ namespace App_GestionArticulos
                     marca = new Marca();
 
                 marca.Nombre = txt_NombreMarca.Text;
+                bool valido = negocioMarca.validarIngreso(marca);
 
-                if (marca.Id == 0)
+                if (valido)
                 {
-                    bool valido = negocioMarca.validarIngreso(marca);
-                    if (!valido)
+                    
+                    if (marca.Id != 0)
                     {
-                        MessageBox.Show("Marca Ya existente!");
+                        negocioMarca.Modificar(marca);
+                        MessageBox.Show("Marca modificada con Exito.", "Modificacion realizada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
 
                     }
                     else
                     {
-
                         negocioMarca.Agregar(marca);
-                        MessageBox.Show("Marca agregada exitosamente");
+                        MessageBox.Show("Marca agregada con Exito", "Alta realizada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
+
+                    Close();
                 }
                 else
                 {
-                    negocioMarca.Modificar(marca);
-                    MessageBox.Show("Marcca modificada exitosamente");
+                    MessageBox.Show("Marca Ya Existente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                Close();
             }
             catch (Exception ex)
             {
@@ -92,5 +94,6 @@ namespace App_GestionArticulos
                 MessageBox.Show(ex.ToString());
             }
         }
+
     }
 }
