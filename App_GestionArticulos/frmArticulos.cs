@@ -56,14 +56,24 @@ namespace App_GestionArticulos
             }
         }
 
-        private void buttonAgregar_Click(object sender, EventArgs e)
+        private void agregarArticulo()
         {
             frmAltaArticulo altaArticulo = new frmAltaArticulo();
             altaArticulo.ShowDialog();
             cargar();
         }
 
-        private void buttonModificar_Click(object sender, EventArgs e)
+        private void informacionDetalladaArticulo()
+        {
+            Articulo seleccion;
+            seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
+
+            frmInformacionArticulo info = new frmInformacionArticulo(seleccion);
+            info.ShowDialog();
+            cargar();
+        }
+
+        private void modificarArticulo()
         {
             Articulo seleccion;
             seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
@@ -73,14 +83,46 @@ namespace App_GestionArticulos
             cargar();
         }
 
+        private void eliminarArticulo()
+        {
+            ArticuloNegocio artNegocio = new ArticuloNegocio();
+            Articulo seleccion;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Confirma la Eliminacion? ", "Eliminar Categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
+                    artNegocio.Eliminar(seleccion.Id);
+                    cargar();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void buttonAgregar_Click(object sender, EventArgs e)
+        {
+            agregarArticulo();
+        }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            modificarArticulo();
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            eliminarArticulo();
+        }
+        
         private void buttonInformación_Click(object sender, EventArgs e)
         {
-            Articulo seleccion;
-            seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
-
-            frmInformacionArticulo info = new frmInformacionArticulo(seleccion);
-            info.ShowDialog();
-            cargar();
+            informacionDetalladaArticulo();
         }
 
 
@@ -103,29 +145,6 @@ namespace App_GestionArticulos
             OcultarColumna();
         }
 
-        private void buttonEliminar_Click(object sender, EventArgs e)
-        {
-            ArticuloNegocio artNegocio = new ArticuloNegocio();
-            Articulo seleccion;
-            try
-            {
-                DialogResult respuesta= MessageBox.Show("¿Confirma la Eliminacion? ", "Eliminar Categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (respuesta == DialogResult.Yes)
-                {
-                    seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
-                    artNegocio.Eliminar(seleccion.Id);
-                    cargar();
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
-        }
-
         private void buttonFiltroAvanz_Click(object sender, EventArgs e)
         {
             frmFiltroAvanzado FiltroAvanzado = new frmFiltroAvanzado(this);
@@ -135,11 +154,66 @@ namespace App_GestionArticulos
 
         }
 
-        public void TrasadarLista(List<Articulo> articulos)
+        public void TrasladarLista(List<Articulo> articulos)
         {
             dataGridArticulo.DataSource = null;
             dataGridArticulo.DataSource = articulos;
             OcultarColumna();
+        }
+
+
+        private void tsm_informacionDetalladaArticulo_Click(object sender, EventArgs e)
+        {
+            informacionDetalladaArticulo();
+        }
+
+        private void tsm_agregarArticulo_Click(object sender, EventArgs e)
+        {
+            agregarArticulo();
+        }
+
+        private void tsm_modificarArticulo_Click(object sender, EventArgs e)
+        {
+            modificarArticulo();
+        }
+
+        private void tsm_eliminarArticulo_Click(object sender, EventArgs e)
+        {
+            eliminarArticulo();
+        }
+
+        private void tsm_verMarcas_Click(object sender, EventArgs e)
+        {
+            frmMenuMarcas menuMarcas = new frmMenuMarcas();
+            menuMarcas.ShowDialog();
+        }
+
+        private void tsm_agregarMarca_Click(object sender, EventArgs e)
+        {
+            frmAlta_Edicion_Marca alta = new frmAlta_Edicion_Marca();
+            alta.ShowDialog();
+        }
+
+        private void tsm_verCategorias_Click(object sender, EventArgs e)
+        {
+            frmCategoria menuCategorias = new frmCategoria();
+            menuCategorias.ShowDialog();
+        }
+
+        private void tsm_agregarCategorias_Click(object sender, EventArgs e)
+        {
+            frmAgregarModificarCategoria agregar = new frmAgregarModificarCategoria();
+            agregar.ShowDialog();
+        }
+
+        private void tsm_sobreGestorDeProductos_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Gestor de Productos fue realizado por el equipo 10B para la materia Programacion 3.\n\nSus integrantes son:\n - Julieta Barraza.\n - Damian Alejandro Sanchez Di Giovanni.\n - Jonatan Rodrigo Guzman.", "Creditos", MessageBoxButtons.OK);
+        }
+
+        private void tsm_salir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

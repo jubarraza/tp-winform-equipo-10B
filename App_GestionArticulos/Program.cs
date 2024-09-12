@@ -16,7 +16,7 @@ namespace App_GestionArticulos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMenuPrincipal());
+            Application.Run(new frmArticulos());
         }
     }
 }
