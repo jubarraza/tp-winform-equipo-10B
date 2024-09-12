@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace App_GestionArticulos
 {
-    public partial class frmArticulos : Form
+    public partial class frmArticulos : Form, IntPasodelistascs
     {
 
         private List<Articulo> listaArticulos;
@@ -120,9 +120,18 @@ namespace App_GestionArticulos
 
         private void buttonFiltroAvanz_Click(object sender, EventArgs e)
         {
-            frmFiltroAvanzado FiltroAvanzado = new frmFiltroAvanzado();
+            frmFiltroAvanzado FiltroAvanzado = new frmFiltroAvanzado(this);
             FiltroAvanzado.ShowDialog();
+           
+            
 
+        }
+
+        public void TrasadarLista(List<Articulo> articulos)
+        {
+            dataGridArticulo.DataSource = null;
+            dataGridArticulo.DataSource = articulos;
+            OcultarColumna();
         }
     }
 }

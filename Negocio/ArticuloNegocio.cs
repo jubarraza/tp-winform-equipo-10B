@@ -42,7 +42,7 @@ namespace Negocio
 
                     if (!(datos.Lector["Categoria"] is DBNull))
                     {
-                        //articulo.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                        
                         articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     }
                     else

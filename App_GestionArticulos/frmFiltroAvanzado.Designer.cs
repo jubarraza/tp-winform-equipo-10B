@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-        this.label1 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxMarca = new System.Windows.Forms.ComboBox();
             this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
@@ -36,6 +36,9 @@
             this.comboBoxPrecio = new System.Windows.Forms.ComboBox();
             this.textBoxPrecio1 = new System.Windows.Forms.TextBox();
             this.textBoxPrecio2 = new System.Windows.Forms.TextBox();
+            this.labelDesde = new System.Windows.Forms.Label();
+            this.labelHasta = new System.Windows.Forms.Label();
+            this.buttonBuscar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -110,11 +113,44 @@
             this.textBoxPrecio2.Size = new System.Drawing.Size(148, 20);
             this.textBoxPrecio2.TabIndex = 7;
             // 
+            // labelDesde
+            // 
+            this.labelDesde.AutoSize = true;
+            this.labelDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDesde.Location = new System.Drawing.Point(29, 192);
+            this.labelDesde.Name = "labelDesde";
+            this.labelDesde.Size = new System.Drawing.Size(68, 20);
+            this.labelDesde.TabIndex = 8;
+            this.labelDesde.Text = "Importe:";
+            // 
+            // labelHasta
+            // 
+            this.labelHasta.AutoSize = true;
+            this.labelHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHasta.Location = new System.Drawing.Point(29, 232);
+            this.labelHasta.Name = "labelHasta";
+            this.labelHasta.Size = new System.Drawing.Size(56, 20);
+            this.labelHasta.TabIndex = 9;
+            this.labelHasta.Text = "Hasta:";
+            // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.Location = new System.Drawing.Point(121, 273);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(148, 25);
+            this.buttonBuscar.TabIndex = 10;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            // 
             // frmFiltroAvanzado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 278);
+            this.ClientSize = new System.Drawing.Size(294, 332);
+            this.Controls.Add(this.buttonBuscar);
+            this.Controls.Add(this.labelHasta);
+            this.Controls.Add(this.labelDesde);
             this.Controls.Add(this.textBoxPrecio2);
             this.Controls.Add(this.textBoxPrecio1);
             this.Controls.Add(this.comboBoxPrecio);
@@ -142,5 +178,8 @@
         private System.Windows.Forms.ComboBox comboBoxPrecio;
         private System.Windows.Forms.TextBox textBoxPrecio1;
         private System.Windows.Forms.TextBox textBoxPrecio2;
+        private System.Windows.Forms.Label labelDesde;
+        private System.Windows.Forms.Label labelHasta;
+        private System.Windows.Forms.Button buttonBuscar;
     }
 }
