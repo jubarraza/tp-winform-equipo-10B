@@ -29,7 +29,8 @@ namespace App_GestionArticulos
         private void FormatoColumnas()
         {
             dataGridArticulo.Columns["CodArt"].Width = 60;
-            dataGridArticulo.Columns["Precio"].DefaultCellStyle.Format = "$ 0.00##";
+            dataGridArticulo.Columns["Precio"].DefaultCellStyle.Format = "$ 0.000##";
+            dataGridArticulo.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridArticulo.Columns["Nombre"].Width = 124;
         }
         private void OcultarColumna()
@@ -196,6 +197,7 @@ namespace App_GestionArticulos
         {
             dataGridArticulo.DataSource = null;
             dataGridArticulo.DataSource = articulos;
+            FormatoColumnas();
             OcultarColumna();
         }
 
