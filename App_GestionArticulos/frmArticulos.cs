@@ -126,7 +126,7 @@ namespace App_GestionArticulos
                 }
                 else
                 {
-                    DialogResult respuesta = MessageBox.Show("¿Confirma la Eliminacion? ", "Eliminar Categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult respuesta = MessageBox.Show("¿Desea eliminar el articulo? Se eliminara toda su informacion incluyendo las imagens.", "Eliminar Articulo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (respuesta == DialogResult.Yes)
                     {
                         seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;

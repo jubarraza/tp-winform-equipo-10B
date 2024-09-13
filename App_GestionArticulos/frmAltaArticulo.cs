@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -82,11 +83,13 @@ namespace App_GestionArticulos
                     {
                         txt_Url.Text = listaImagenes[indiceImagen].UrlImagen;
                         btn_AgregarImagenes.Visible = true;
+                        btn_BorrarImg.Visible = true;
                     }
                     else
                     {
                         txt_Url.Text = string.Empty;
-                        btn_AgregarImagenes.Visible = false;
+                        btn_AgregarImagenes.Visible = true;
+                        btn_BorrarImg.Visible = false;
                     }
 
                     CargarImagenes(listaImagenes);
@@ -94,8 +97,8 @@ namespace App_GestionArticulos
                 }
                 else
                 {
-                    btn_AgregarImagenes.Enabled = false;
                     btn_AgregarImagenes.Visible = false;
+                    btn_BorrarImg.Visible= false;
                 }
 
             }
@@ -189,7 +192,6 @@ namespace App_GestionArticulos
                             img.UrlImagen = nuevaUrlImagen;
                             negocioImg.Modificar(img);
                         }
-                    
                     }
                     else
                     {
@@ -234,6 +236,8 @@ namespace App_GestionArticulos
                 if (!(listaSeleccion is null))
                 {
                     pb_Imagen.Load(listaSeleccion[indiceImagen].UrlImagen);
+                    txt_Url.Text = listaSeleccion[indiceImagen].UrlImagen;
+                    btn_BorrarImg.Visible = true;
                     ActualizarBotones();
 
                 }
@@ -248,10 +252,7 @@ namespace App_GestionArticulos
             }
             catch (WebException webex)
             {
-                pb_Imagen.Load("https://static.vecteezy.com/system/resources/previews/005/720/408/non_2x/crossed-image-icon-picture-not-available-delete-picture-symbol-free-vector.jpg");
-                txt_Url.Text = string.Empty;
-                btn_AgregarImagenes.Visible = false;
-                DesactivarBotones();
+                ExcepcionWeb();
             }
             catch (Exception ex)
             {
@@ -267,48 +268,85 @@ namespace App_GestionArticulos
             try
             {
                 pb_Imagen.Load(imagen);
+                btn_BorrarImg.Visible = true;
             }
             catch (Exception ex)
             {
                 pb_Imagen.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWz9tftw9qculFH1gxieWkxL6rbRk_hrXTSg&s");
+                btn_BorrarImg.Visible = false;
             }
 
         }
 
         private void txt_Url_Leave(object sender, EventArgs e)
         {
+            CargarImagen(txt_Url.Text);
+        }
+
+        private void ExcepcionWeb()
+        {
+
+            pb_Imagen.Load("https://static.vecteezy.com/system/resources/previews/005/720/408/non_2x/crossed-image-icon-picture-not-available-delete-picture-symbol-free-vector.jpg");
+            txt_Url.Text = listaSeleccion[indiceImagen].UrlImagen;
+            btn_AgregarImagenes.Visible = true;
+            btn_BorrarImg.Visible = true;
+            if (!(listaSeleccion.Count > 0))
+            {
+                DesactivarBotones();
+            }
+            else
+            {
+                ActualizarBotones();
+            }
+
+        }
+
+        private void btn_Atras_Click(object sender, EventArgs e)
+        {
             try
             {
-                CargarImagen(txt_Url.Text);
+                if (indiceImagen > 0)
+                {
+                    indiceImagen--;
+                    pb_Imagen.Load(listaSeleccion[indiceImagen].UrlImagen);
+                    txt_Url.Text = listaSeleccion[indiceImagen].UrlImagen;
+                }
+                ActualizarBotones();
+            }
+            catch (WebException)
+            {
+                ExcepcionWeb();
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
             }
-        }
-
-        private void btn_Atras_Click(object sender, EventArgs e)
-        {
-            if (indiceImagen > 0)
-            {
-                indiceImagen--;
-                pb_Imagen.Load(listaSeleccion[indiceImagen].UrlImagen);
-                txt_Url.Text = listaSeleccion[indiceImagen].UrlImagen;
-            }
-            ActualizarBotones();
+            
         }
 
         private void btn_Adelante_Click(object sender, EventArgs e)
         {
-
-            if (indiceImagen < listaSeleccion.Count - 1)
+            try
             {
-                indiceImagen++;
-                pb_Imagen.Load(listaSeleccion[indiceImagen].UrlImagen);
-                txt_Url.Text = listaSeleccion[indiceImagen].UrlImagen;
+                if (indiceImagen < listaSeleccion.Count - 1)
+                {
+                    indiceImagen++;
+                    pb_Imagen.Load(listaSeleccion[indiceImagen].UrlImagen);
+                    txt_Url.Text = listaSeleccion[indiceImagen].UrlImagen;
+                }
+                ActualizarBotones();
             }
-            ActualizarBotones();
+            catch (WebException)
+            {
+                ExcepcionWeb();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
         private void ActualizarBotones()
@@ -350,8 +388,49 @@ namespace App_GestionArticulos
 
         public void TrasladoImagen(Imagen imagen)
         {
-            listaSeleccion.Add(imagen);
-            CargarImagenes(listaSeleccion);
+            try
+            {
+                if (listaSeleccion is null)
+                {
+                    listaSeleccion = new List<Imagen>();
+                }
+
+                listaSeleccion.Add(imagen);
+                CargarImagenes(listaSeleccion);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
+        }
+
+        private void btn_BorrarImg_Click(object sender, EventArgs e)
+        {
+            Imagen img = new Imagen();
+            ImagenNegocio negocioImg = new ImagenNegocio();
+            try
+            {
+                if (listaSeleccion is null) 
+                { 
+                    btn_BorrarImg.Visible = false;
+                }
+                else
+                {
+                    img = listaSeleccion[indiceImagen];
+                    negocioImg.Eliminar(img);
+                    listaSeleccion = negocioImg.BuscarImagenes(img.Articulo.Id);
+                }
+                indiceImagen = 0;
+                CargarImagenes(listaSeleccion);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
     }
 }

@@ -24,22 +24,43 @@ namespace App_GestionArticulos
             InitializeComponent();
             interfazImg = padre;
             this.articulo = art;
-            this.listaImagenes = listaImg;
+            if (listaImg != null)
+            {
+                this.listaImagenes = listaImg;
+            }
+            else
+            {
+                this.listaImagenes = new List<Imagen>();
+            }
         }
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             ImagenNegocio negocioImagen = new ImagenNegocio();
             Imagen img = new Imagen();
-            
-            img.Articulo = articulo;
-            img.UrlImagen = txt_Url.Text;
-            negocioImagen.Agregar(img);
 
+            try
+            {
+                if(txt_Url.Text != string.Empty)
+                {
+                    img.Articulo = articulo;
+                    img.UrlImagen = txt_Url.Text;
+                    negocioImagen.Agregar(img);
 
-            interfazImg.TrasladoImagen(img);
-            Close();
+                    interfazImg.TrasladoImagen(img);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar una URL valida.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
 
         }
 
