@@ -167,5 +167,22 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public void Eliminar(Imagen img)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("DELETE FROM IMAGENES WHERE Id = @Id");
+                datos.SetearParametro("@Id", img.Id);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
