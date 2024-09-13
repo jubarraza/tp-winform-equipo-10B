@@ -31,13 +31,14 @@ namespace App_GestionArticulos
             CategoriaNegocio categoria = new CategoriaNegocio();
             try
             {
-                comboBoxMarca.DataSource = marca.Listar();               
+                comboBoxMarca.DataSource = marca.Listar();
                 comboBoxCategoria.DataSource = categoria.Listar();
                 comboBoxPrecio.Items.Add("Mayor a");
                 comboBoxPrecio.Items.Add("Menor a");
                 comboBoxPrecio.Items.Add("Entre");
                 textBoxPrecio2.Visible = false;
                 labelHasta.Visible = false; 
+
                 
             }
             catch (Exception ex)
@@ -68,12 +69,10 @@ namespace App_GestionArticulos
         {
             String marca = comboBoxMarca.SelectedItem.ToString();
             string categoria = comboBoxCategoria.SelectedItem.ToString();
-            string precio = comboBoxPrecio.SelectedItem.ToString();
+            string precio;
+            bool lectura = true;
 
-            if (string.IsNullOrEmpty(comboBoxPrecio.SelectedItem.ToString()) ) 
-            {
-            precio = "";
-            }
+         
           
 
             
@@ -83,12 +82,23 @@ namespace App_GestionArticulos
 
             try
             {
+                if (object.ReferenceEquals(null, comboBoxPrecio.SelectedItem))
+                {
+                    precio = "0";
+                }
+                else
+                {
+                    precio = comboBoxPrecio.SelectedItem.ToString();
+                }
+
+
+
                 string consulta = "select AR.Id, AR.Codigo, AR.Nombre, AR.Descripcion, MA.Id as IdMarca, MA.Descripcion" +
                     " as Marca, CA.Id as IdCategoria, CA.Descripcion as Categoria, AR.Precio from ARTICULOS as AR left join " +
                     "MARCAS as MA on AR.IdMarca = MA.Id left join CATEGORIAS as CA on AR.IdCategoria = CA.Id where ";
 
 
-                if (!string.IsNullOrEmpty(precio))
+                if (precio != "0")
                 {
                     switch (precio)
                     {
@@ -106,7 +116,7 @@ namespace App_GestionArticulos
 
                 if (!string.IsNullOrEmpty(marca) && !string.IsNullOrEmpty(categoria))
                 {
-                    if (!string.IsNullOrEmpty(precio))
+                    if (precio != "0")
                     {
                         consulta += "MA.Descripcion like '" + marca + "' and CA.Descripcion like '" + categoria + "' and " + precio;
                     }
@@ -117,7 +127,7 @@ namespace App_GestionArticulos
                 }
                 else if (string.IsNullOrEmpty(marca) && !string.IsNullOrEmpty(categoria))
                 {
-                    if (!string.IsNullOrEmpty(precio))
+                    if (precio != "0")
                     {
                         consulta += "CA.Descripcion like '" + categoria + "' and " + precio;
                     }
@@ -130,8 +140,10 @@ namespace App_GestionArticulos
                 datos.SetearConsulta(consulta);
                 datos.EjecutarLectura();
 
+
                 while (datos.Lector.Read())
                 {
+                    lectura = false;
                     Articulo articulo = new Articulo();
                     articulo.Id = (int)datos.Lector["Id"];
                     articulo.CodArt = (string)datos.Lector["Codigo"];
@@ -165,8 +177,19 @@ namespace App_GestionArticulos
                     articulos.Add(articulo);
                 }
 
+
+                if (lectura)
+                {
+                    DialogResult respuesta =
+                    MessageBox.Show("No se encontraron resultados", "Mensaje");
+                    return;
+                }
+
                 IntPasodelistascs.TrasladarLista(articulos);
                 this.Close();
+               
+
+              
 
             }
             catch (Exception ex)
