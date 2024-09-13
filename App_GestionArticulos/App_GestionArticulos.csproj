@@ -94,6 +94,13 @@
     <Compile Include="frmMenuMarcas.Designer.cs">
       <DependentUpon>frmMenuMarcas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNuevaImagen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevaImagen.Designer.cs">
+      <DependentUpon>frmNuevaImagen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaz_TrasladoImagenes.cs" />
     <Compile Include="IntPasodelistascs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuMarcas.resx">
       <DependentUpon>frmMenuMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevaImagen.resx">
+      <DependentUpon>frmNuevaImagen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

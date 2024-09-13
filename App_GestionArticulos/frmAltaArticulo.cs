@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace App_GestionArticulos
 {
-    public partial class frmAltaArticulo : Form
+    public partial class frmAltaArticulo : Form, Interfaz_TrasladoImagenes
     {
         private Articulo articulo;
         private List<Imagen> listaImagenes;
@@ -77,6 +77,7 @@ namespace App_GestionArticulos
                     textBoxPrecio.Text = articulo.Precio.ToString();
 
                     listaImagenes = imagenNegocio.BuscarImagenes(articulo.Id);
+
                     if(!(listaImagenes is null))
                     {
                         txt_Url.Text = listaImagenes[indiceImagen].UrlImagen;
@@ -88,7 +89,7 @@ namespace App_GestionArticulos
                         btn_AgregarImagenes.Visible = false;
                     }
 
-                    CargarImagenes(articulo.Id);
+                    CargarImagenes(listaImagenes);
 
                 }
                 else
@@ -221,24 +222,16 @@ namespace App_GestionArticulos
             }
         }
 
-        public void CargarImagenes(int idseleccion)
+        public void CargarImagenes(List<Imagen> listaRecibida)
         {
             ImagenNegocio negocioImagen = new ImagenNegocio();
             listaSeleccion = new List<Imagen>();
 
             try
             {
-                listaImagenes = negocioImagen.Listar();
+                listaSeleccion = listaRecibida;
 
-                foreach (Imagen img in listaImagenes)
-                {
-                    if (img.Articulo.Id == idseleccion)
-                    {
-                        listaSeleccion.Add(img);
-                    }
-                }
-
-                if (listaSeleccion.Count > 0)
+                if (!(listaSeleccion is null))
                 {
                     pb_Imagen.Load(listaSeleccion[indiceImagen].UrlImagen);
                     ActualizarBotones();
@@ -247,6 +240,7 @@ namespace App_GestionArticulos
                 else
                 {
                     pb_Imagen.Load("https://static.vecteezy.com/system/resources/previews/005/720/408/non_2x/crossed-image-icon-picture-not-available-delete-picture-symbol-free-vector.jpg");
+                    txt_Url.Text = string.Empty;
                     DesactivarBotones();
                 }
 
@@ -255,6 +249,8 @@ namespace App_GestionArticulos
             catch (WebException webex)
             {
                 pb_Imagen.Load("https://static.vecteezy.com/system/resources/previews/005/720/408/non_2x/crossed-image-icon-picture-not-available-delete-picture-symbol-free-vector.jpg");
+                txt_Url.Text = string.Empty;
+                btn_AgregarImagenes.Visible = false;
                 DesactivarBotones();
             }
             catch (Exception ex)
@@ -345,7 +341,17 @@ namespace App_GestionArticulos
 
         private void lbl_AgregarImagenes_Click(object sender, EventArgs e)
         {
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
+            listaSeleccion = imagenNegocio.BuscarImagenes(articulo.Id);
+            frmNuevaImagen agregarImagen = new frmNuevaImagen(articulo, listaSeleccion, this);
+            agregarImagen.ShowDialog();
+            
+        }
 
+        public void TrasladoImagen(Imagen imagen)
+        {
+            listaSeleccion.Add(imagen);
+            CargarImagenes(listaSeleccion);
         }
     }
 }
