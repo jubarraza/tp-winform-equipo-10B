@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Dominio;
 
@@ -9,9 +10,10 @@ namespace Negocio
 {
     public class ImagenNegocio
     {
+        private List<Imagen> listaImg;
         public List<Imagen> Listar()
         {
-            List<Imagen> lista = new List<Imagen>();
+            listaImg = new List<Imagen>();
             AccesoDatos datos = new AccesoDatos();
             ArticuloNegocio negocioArticulo = new ArticuloNegocio();
 
@@ -39,10 +41,10 @@ namespace Negocio
                         //TODO: No existe el articulo
                     }
 
-                    lista.Add(aux);
+                    listaImg.Add(aux);
                     
                 }
-                return lista;
+                return listaImg;
             }
             catch (Exception ex)
             {
@@ -52,6 +54,99 @@ namespace Negocio
             finally
             {
                 datos.CerrarConexion();
+            }
+
+        }
+
+        public void Agregar(Imagen img)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("INSERT INTO IMAGENES (IdArticulo,ImagenUrl) VALUES (@IdArticulo,@UrlImagen)");
+                datos.SetearParametro("@IdArticulo", img.Articulo.Id);
+                datos.SetearParametro("@UrlImagen", img.UrlImagen);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void Modificar(Imagen img)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("UPDATE IMAGENES SET IdArticulo = @IdArticulo, ImagenUrl = @UrlImagen WHERE Id = @Id");
+                datos.SetearParametro("@IdArticulo", img.Articulo.Id);
+                datos.SetearParametro("@UrlImagen", img.UrlImagen);
+                datos.SetearParametro("@Id", img.Id);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public List<Imagen> BuscarImagenes(int idArticulo)
+        {
+            listaImg = Listar();
+            List<Imagen> listaXArticulo = new List<Imagen>();
+
+            foreach (Imagen img in listaImg)
+            {
+                if (img.Articulo.Id == idArticulo)
+                {
+                    listaXArticulo.Add(img);
+                }
+            }
+
+            if(listaXArticulo.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return listaXArticulo;
+            }
+            
+        }
+
+        public Imagen BuscarImagen(int idArticulo, int index)
+        {
+            listaImg = Listar();
+            List<Imagen> listaXArticulo = new List<Imagen>();
+            Imagen imagen = new Imagen();
+
+            foreach (Imagen img in listaImg)
+            {
+                if (img.Articulo.Id == idArticulo)
+                {
+                    listaXArticulo.Add(img);
+                }
+            }
+
+            if (listaXArticulo.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                imagen = listaXArticulo[index];
+                return imagen;
             }
 
         }

@@ -42,7 +42,7 @@ namespace Negocio
 
                     if (!(datos.Lector["Categoria"] is DBNull))
                     {
-                        
+                        articulo.Categoria.Id = (int)datos.Lector["IdCategoria"];
                         articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     }
                     else
@@ -60,7 +60,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
@@ -71,7 +70,7 @@ namespace Negocio
 
         }
 
-        public void Agregar(Articulo nuevo)
+        public int Agregar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
 
@@ -87,6 +86,11 @@ namespace Negocio
                 datos.SetearParametro("@precio", nuevo.Precio);
 
                 datos.EjecutarAccion();
+
+                nuevo = BuscarArticulo(nuevo.Nombre);
+
+                return nuevo.Id;
+                
             }
             catch (Exception ex)
             {
@@ -137,6 +141,20 @@ namespace Negocio
             return null;
         }
 
+        public Articulo BuscarArticulo(string nombre)
+        {
+            List<Articulo> listaArticulos = listar();
+
+            foreach (Articulo aux in listaArticulos)
+            {
+                if (aux.Nombre == nombre)
+                {
+                    return aux;
+                }
+            }
+            return null;
+        }
+
         public void Eliminar(int id)
         {
             try
@@ -169,6 +187,7 @@ namespace Negocio
                 throw ex;
             }
         }
+
     }
 
 
