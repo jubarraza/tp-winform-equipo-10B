@@ -48,6 +48,7 @@ namespace App_GestionArticulos
                     negocioImagen.Agregar(img);
 
                     interfazImg.TrasladoImagen(img);
+                    MessageBox.Show("Se ha guardado la imagen", "Imagen agregada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
                 else
@@ -94,6 +95,18 @@ namespace App_GestionArticulos
         private void txt_Url_Leave(object sender, EventArgs e)
         {
             CargarImagen(txt_Url.Text);
+        }
+
+        private void frmNuevaImagen_Load(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(txt_Url, "Ingrese una URL valida. Limite de 1000 caracteres.");
+            toolTip.InitialDelay = 100;  // aparece a los 0.1 segundos
+            toolTip.IsBalloon = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

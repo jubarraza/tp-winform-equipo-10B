@@ -29,8 +29,11 @@ namespace App_GestionArticulos
         private void FormatoColumnas()
         {
             dataGridArticulo.Columns["CodArt"].Width = 60;
-            dataGridArticulo.Columns["Precio"].DefaultCellStyle.Format = "$ 0.000##";
+            dataGridArticulo.Columns["Precio"].DefaultCellStyle.Format = "$ 0,0.000##";
             dataGridArticulo.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridArticulo.Columns["Precio"].Width = 115;
+            dataGridArticulo.Columns["Marca"].Width = 85;
+            dataGridArticulo.Columns["Categoria"].Width = 85;
             dataGridArticulo.Columns["Nombre"].Width = 124;
         }
         private void OcultarColumna()
@@ -49,6 +52,12 @@ namespace App_GestionArticulos
                 FormatoColumnas();
                 OcultarColumna();
                 textBoxBusqueda.Text = string.Empty;
+                toolTip.SetToolTip(buttonAgregar, "Agregar articulo");
+                toolTip.SetToolTip(buttonModificar, "Editar articulo seleccionado");
+                toolTip.SetToolTip(buttonEliminar, "Eliminar articulo seleccionado");
+                toolTip.SetToolTip(buttonInformación, "Ampliar informacion de articulo\nAlt+Space");
+                toolTip.SetToolTip(buttonFiltroAvanz, "Opciones de filtros avanzados");
+                toolTip.SetToolTip(buttonBorrarFiltros, "Limpiar filtros aplicados");
 
             }
             catch (Exception)
@@ -127,7 +136,7 @@ namespace App_GestionArticulos
                 }
                 else
                 {
-                    DialogResult respuesta = MessageBox.Show("¿Desea eliminar el articulo? Se eliminara toda su informacion incluyendo las imagens.", "Eliminar Articulo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult respuesta = MessageBox.Show("¿Desea eliminar el articulo? Se eliminara toda su informacion incluyendo las imagenes asociadas.", "Eliminar Articulo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (respuesta == DialogResult.Yes)
                     {
                         seleccion = (Articulo)dataGridArticulo.CurrentRow.DataBoundItem;
@@ -248,7 +257,7 @@ namespace App_GestionArticulos
 
         private void tsm_sobreGestorDeProductos_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("La aplicacion \"Gestor de Productos\" fue realizada por el equipo 10B para la materia Programacion 3.\n\nSus integrantes son:\n - Julieta Barraza.\n - Damian Alejandro Sanchez Di Giovanni.\n - Jonatan Rodrigo Guzman.", "Acerca de", MessageBoxButtons.OK);
+            MessageBox.Show("La aplicacion \"Gestor de Productos\" fue realizada por el equipo 10B para la materia Programacion 3.\n\nSus integrantes son:\n - Julieta Barraza.\n - Damian Alejandro Sanchez Di Giovanni.\n - Jonatan Rodrigo Guzman.", "Acerca de...", MessageBoxButtons.OK);
         }
 
         private void tsm_salir_Click(object sender, EventArgs e)
@@ -260,5 +269,7 @@ namespace App_GestionArticulos
         {
             cargar();
         }
+
+
     }
 }

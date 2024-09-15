@@ -43,7 +43,7 @@ namespace App_GestionArticulos
                 lbl_Desc.Text = seleccion.Descripcion;
                 lbl_Marca.Text = seleccion.Marca.Nombre;
                 lbl_Cat.Text = seleccion.Categoria.Descripcion;
-                lbl_Precio.Text = "$ " + seleccion.Precio.ToString();
+                lbl_Precio.Text = "$ " + seleccion.Precio.ToString("0,0.00##");
                 CargarImagenes(seleccion.Id);
                 
             }

@@ -45,6 +45,8 @@ namespace App_GestionArticulos
                 comboBoxPrecio.Items.Add("Entre");
                 textBoxPrecio2.Visible = false;
                 labelHasta.Visible = false;
+                toolTip.SetToolTip(buttonBuscar, "Buscar");
+                toolTip.SetToolTip(buttonCancelar, "Cancelar");
 
 
             }
@@ -108,7 +110,7 @@ namespace App_GestionArticulos
                     //Si no hay ninguno distinto de index -1, arrojar message box pidiendo al menos un campo.
                     if (comboBoxMarca.SelectedIndex == -1 && comboBoxCategoria.SelectedIndex == -1)
                     {
-                        MessageBox.Show("Se debe seleccionar al menos una opcion de busqueda");
+                        MessageBox.Show("Se debe seleccionar al menos una opcion de busqueda", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else if (comboBoxPrecio.SelectedIndex == -1 && textBoxPrecio1.Text != string.Empty)
@@ -116,7 +118,7 @@ namespace App_GestionArticulos
                     opcionPrecioSeleccionada = false;
                     precioCargado = true;
                     //arrojar messagebox pidiendo completar el combo box de precio.
-                    MessageBox.Show("Se debe seleccionar un criterio para la busqueda de precio");
+                    MessageBox.Show("Se debe seleccionar un criterio para la busqueda de precio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (comboBoxPrecio.SelectedIndex != -1 && textBoxPrecio1.Text != string.Empty)
                 {
@@ -130,7 +132,7 @@ namespace App_GestionArticulos
                     opcionPrecioSeleccionada = true;
                     precioCargado = false;
                     //tiene seleccionado la opcion de precio pero no completo el text box
-                    MessageBox.Show("Se debe completar un valor para el precio");
+                    MessageBox.Show("Se debe completar un valor para el precio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -308,7 +310,7 @@ namespace App_GestionArticulos
 
                 if (lectura)
                 {
-                    MessageBox.Show("No hay resultados que coincidan con la busqueda.", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("No hay resultados que coincidan con la busqueda.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 IntPasodelistascs.TrasladarLista(listaArticulosFiltrados);
@@ -320,6 +322,11 @@ namespace App_GestionArticulos
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
