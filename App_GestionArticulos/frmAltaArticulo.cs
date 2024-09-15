@@ -44,7 +44,7 @@ namespace App_GestionArticulos
             toolTip_am.SetToolTip(textBoxCodigo, "* Obligatorio\nCodigo alfanumerico hasta 50 caracteres.");
             toolTip_am.SetToolTip(textBoxNombre, "* Obligatorio. Hasta 50 caracteres.");
             toolTip_am.SetToolTip(textBoxDescrip, "* Obligatorio.Hasta 150 caracteres.");
-            toolTip_am.SetToolTip(txt_Url, "Opcional\nIngrese una URL valida.");
+            toolTip_am.SetToolTip(txt_Url, "Opcional\nIngrese una URL valida hasta 1000 caracteres.");
             toolTip_am.SetToolTip(comboBoxMarca, "* Obligatorio.");
             toolTip_am.SetToolTip(comboBoxCategoria, "* Obligatorio.");
             toolTip_am.SetToolTip(textBoxPrecio, "* Obligatorio\nAcepta numeros decimales (separados con coma).");
@@ -55,7 +55,7 @@ namespace App_GestionArticulos
 
             toolTip_am.AutoPopDelay = 5000; // visible por 5 segundos
             toolTip_am.InitialDelay = 100;  // aparece a los 0.1 segundos
-            toolTip_am.IsBalloon = true;    // tooltip como burbuja
+            toolTip_am.IsBalloon = true;    // tooltip con forma de burbuja
 
         }
 
@@ -178,7 +178,7 @@ namespace App_GestionArticulos
             {
                 if (!validacionCamposObligatorios())
                 {
-                    MessageBox.Show("Debe completar todos los campos obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Debe completar todos los campos obligatorios \n(marcados con *)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
