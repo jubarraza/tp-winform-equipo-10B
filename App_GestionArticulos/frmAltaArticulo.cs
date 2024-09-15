@@ -99,7 +99,7 @@ namespace App_GestionArticulos
                     textBoxDescrip.Text = articulo.Descripcion;
                     comboBoxMarca.SelectedValue = articulo.Marca.Id;
                     comboBoxCategoria.SelectedValue = articulo.Categoria.Id;
-                    textBoxPrecio.Text = articulo.Precio.ToString("0.0##");
+                    textBoxPrecio.Text = articulo.Precio.ToString("0.00##");
 
                     listaImagenes = imagenNegocio.BuscarImagenes(articulo.Id);
 
@@ -139,17 +139,33 @@ namespace App_GestionArticulos
             this.Close();
         }
 
-        private bool numeroDecimal(string cadena)
+        private bool numeroDecimalPositivo(string cadena)
         {
+            bool tieneComa = false;
 
             foreach(char caract in cadena)
             {
-                if ((char.IsNumber(caract)) || char.IsDigit(','))
+                if (char.IsDigit(caract))
                 {
-                    return true;
+                    continue;
+                }
+                else if (caract == ',')
+                {
+                    if (tieneComa)
+                    {
+                        return false; //no acepta mas de 1 coma
+                    }
+                    else
+                    {
+                        tieneComa = true;
+                    }
+                }
+                else
+                {
+                    return false;
                 }
             }
-            return false;
+            return true;
         }
 
         private bool validacionCamposObligatorios()
@@ -182,9 +198,9 @@ namespace App_GestionArticulos
                     return;
                 }
 
-                if (!(numeroDecimal(textBoxPrecio.Text)))
+                if (!(numeroDecimalPositivo(textBoxPrecio.Text)))
                 {
-                    MessageBox.Show("El precio debe ser un número válido (usar coma para decimales)", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El precio debe ser un número válido (admite una coma para decimales)", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -201,12 +217,13 @@ namespace App_GestionArticulos
                 articulo.Descripcion = textBoxDescrip.Text;
                 articulo.Marca = (Marca)comboBoxMarca.SelectedItem;
                 articulo.Categoria = (Categoria)comboBoxCategoria.SelectedItem;
-                articulo.Precio = float.Parse(textBoxPrecio.Text);
+                articulo.Precio = decimal.Parse(textBoxPrecio.Text);
                 string nuevaUrlImagen = txt_Url.Text;
-                img.Articulo = articulo;
+                
 
                 if (articulo.Id != 0 ) //articulo existente (modificacion)
                 {
+                    img.Articulo = articulo;
                     negocio.Modificar(articulo);
                     if (negocioImg.BuscarImagen(articulo.Id, indiceImagen) != null) 
                     {
@@ -216,11 +233,16 @@ namespace App_GestionArticulos
                             img.UrlImagen = nuevaUrlImagen;
                             negocioImg.Modificar(img);
                         }
+                        
                     }
                     else
                     {
-                        img.UrlImagen = nuevaUrlImagen;
-                        negocioImg.Agregar(img);
+                        if(nuevaUrlImagen != "")
+                        {
+                            img.UrlImagen = nuevaUrlImagen;
+                            negocioImg.Agregar(img);
+                        }
+                        
                     }
 
                     MessageBox.Show("Articulo modificado con Exito.", "Modificacion realizada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -310,7 +332,7 @@ namespace App_GestionArticulos
         private void ExcepcionWeb()
         {
 
-            pb_Imagen.Load("https://static.vecteezy.com/system/resources/previews/005/720/408/non_2x/crossed-image-icon-picture-not-available-delete-picture-symbol-free-vector.jpg");
+            pb_Imagen.Load("https://www.shutterstock.com/image-vector/corrupted-file-icon-isolated-on-600nw-2153325503.jpg");
             txt_Url.Text = listaSeleccion[indiceImagen].UrlImagen;
             btn_AgregarImagenes.Visible = true;
             btn_BorrarImg.Visible = true;

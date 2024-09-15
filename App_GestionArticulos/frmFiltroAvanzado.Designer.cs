@@ -112,7 +112,7 @@
             // 
             this.textBoxPrecio1.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPrecio1.Location = new System.Drawing.Point(84, 61);
-            this.textBoxPrecio1.MaxLength = 14;
+            this.textBoxPrecio1.MaxLength = 15;
             this.textBoxPrecio1.Name = "textBoxPrecio1";
             this.textBoxPrecio1.Size = new System.Drawing.Size(149, 20);
             this.textBoxPrecio1.TabIndex = 6;
@@ -121,7 +121,7 @@
             // 
             this.textBoxPrecio2.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPrecio2.Location = new System.Drawing.Point(84, 101);
-            this.textBoxPrecio2.MaxLength = 14;
+            this.textBoxPrecio2.MaxLength = 15;
             this.textBoxPrecio2.Name = "textBoxPrecio2";
             this.textBoxPrecio2.Size = new System.Drawing.Size(149, 20);
             this.textBoxPrecio2.TabIndex = 7;

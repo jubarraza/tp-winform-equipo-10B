@@ -20,7 +20,7 @@ namespace Negocio
                 datos.SetearConsulta("select AR.Id, AR.Codigo, AR.Nombre, AR.Descripcion, MA.Id as IdMarca, MA.Descripcion as Marca, CA.Id as IdCategoria, CA.Descripcion as Categoria, AR.Precio from ARTICULOS as AR left join MARCAS as MA on AR.IdMarca = MA.Id left join CATEGORIAS as CA on AR.IdCategoria = CA.Id");
                 datos.EjecutarLectura();
 
-                while(datos.Lector.Read())
+                while (datos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
                     articulo.Id = (int)datos.Lector["Id"];
@@ -46,11 +46,11 @@ namespace Negocio
                         articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     }
                     else
-                    {  
+                    {
                         articulo.Categoria.Descripcion = "S/D";
                     }
 
-                    articulo.Precio = (float)datos.Lector.GetDecimal(8);
+                    articulo.Precio = (decimal)datos.Lector["Precio"];
                     
                     lista.Add(articulo);    
                 }

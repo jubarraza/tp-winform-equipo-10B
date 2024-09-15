@@ -302,7 +302,7 @@ namespace App_GestionArticulos
                         articulo.Categoria.Descripcion = (string)datos.Lector["NombreCategoria"];
                     }
 
-                    articulo.Precio = (float)datos.Lector.GetDecimal(8);
+                    articulo.Precio = (decimal)datos.Lector["Precio"];
 
                     listaArticulosFiltrados.Add(articulo);
                 }

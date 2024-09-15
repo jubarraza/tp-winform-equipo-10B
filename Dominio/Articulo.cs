@@ -24,7 +24,7 @@ namespace Dominio
 
         public Categoria Categoria { get; set; }
 
-        public float Precio { get; set; }
+        public decimal Precio { get; set; }
 
         public override string ToString()
         {
